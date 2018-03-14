@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Shooting : MonoBehaviour {
-    bool leftFacing;
     GameObject player;
 	// Use this for initialization
 	void Start () {
@@ -51,6 +50,10 @@ public class Shooting : MonoBehaviour {
         {
             bullet.transform.eulerAngles = new Vector3(1, 1, angle);
         }
+        bullet.AddComponent<BoxCollider2D>();
+        bullet.AddComponent<Rigidbody2D>();
+        bullet.GetComponent<Rigidbody2D>().drag = 0f;
+        bullet.GetComponent<Rigidbody2D>().gravityScale = 0;
         bullet.AddComponent<BulletMovement>();
     }
 	// Update is called once per frame

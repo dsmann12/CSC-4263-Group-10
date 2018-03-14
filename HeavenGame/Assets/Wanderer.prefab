@@ -60,7 +60,7 @@ GameObject:
   - component: {fileID: 247782558834896300}
   m_Layer: 0
   m_Name: Wanderer
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -75,6 +75,7 @@ GameObject:
   - component: {fileID: 4546160254286256}
   - component: {fileID: 212631679995232726}
   - component: {fileID: 114924559107689198}
+  - component: {fileID: 114646205408349996}
   m_Layer: 0
   m_Name: Arm
   m_TagString: Untagged
@@ -191,6 +192,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 00429d39eefea944f8b5149704f312bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114646205408349996
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1991545047815402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a9dba1e2f3b8df44b632f2954d03893, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &114864645032109642
