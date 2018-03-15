@@ -124,22 +124,22 @@ public class Movement : MonoBehaviour {
         {
             isJumping = false;
         }
-        if (Input.GetKey(KeyCode.RightArrow) && !Input.GetKey(KeyCode.LeftShift) && currState != MovementState.WalkingRight)
+        if ((Input.GetKey(KeyCode.RightArrow)||Input.GetKey(KeyCode.D)) && !Input.GetKey(KeyCode.LeftShift) && currState != MovementState.WalkingRight)
         {
             lastState = currState;
             currState = MovementState.RunningRight;
         }
-        else if (Input.GetKey(KeyCode.RightArrow) && Input.GetKey(KeyCode.LeftShift) && currState != MovementState.RunningRight)
+        else if ((Input.GetKey(KeyCode.RightArrow)||Input.GetKey(KeyCode.D)) && Input.GetKey(KeyCode.LeftShift) && currState != MovementState.RunningRight)
         {
             lastState = currState;
             currState = MovementState.WalkingRight;
         }
-        else if (Input.GetKey(KeyCode.LeftArrow) && !Input.GetKey(KeyCode.LeftShift) && currState != MovementState.WalkingLeft)
+        else if ((Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A)) && !Input.GetKey(KeyCode.LeftShift) && currState != MovementState.WalkingLeft)
         {
             lastState = currState;
             currState = MovementState.RunningLeft;
         }
-        else if (Input.GetKey(KeyCode.LeftArrow) && Input.GetKey(KeyCode.LeftShift) && currState != MovementState.RunningLeft)
+        else if ((Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A)) && Input.GetKey(KeyCode.LeftShift) && currState != MovementState.RunningLeft)
         {
             lastState = currState;
             currState = MovementState.WalkingLeft;

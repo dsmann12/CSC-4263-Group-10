@@ -27,7 +27,7 @@ public class Aiming : MonoBehaviour {
             if (angle > 100 && !leftFacing)
             {
                 leftFacing = true;
-                GetComponentInParent<Turning>().Invoke("turnLeft",0); 
+                GetComponentInParent<Turning>().Invoke("turnLeft",0);
             }
             else if (angle<80 && leftFacing)
             {
