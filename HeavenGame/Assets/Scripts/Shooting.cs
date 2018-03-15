@@ -55,6 +55,12 @@ public class Shooting : MonoBehaviour {
         bullet.GetComponent<Rigidbody2D>().drag = 0f;
         bullet.GetComponent<Rigidbody2D>().gravityScale = 0;
         bullet.AddComponent<BulletMovement>();
+
+        // add projectile component
+        bullet.AddComponent<Projectile>();
+
+        // add tag to bullet
+        bullet.tag = "PlayerBullet";
     }
 	// Update is called once per frame
 	void Update () {
