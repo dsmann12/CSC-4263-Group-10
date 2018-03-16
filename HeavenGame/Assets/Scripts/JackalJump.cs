@@ -55,7 +55,6 @@ public class JackalJump : MonoBehaviour
         RaycastHit2D ceilingHit = Physics2D.Raycast(transform.position, Vector2.up);
         Debug.Log("Raycast distance = " + ceilingHit.distance);
 
-
         // if not jumping, not on ceiling, if raycast hit distance is <= maxCeilingHeight, and raycast hit a wall, then handle ceiling actions
         if (!isJumping && !isOnCeiling && (ceilingHit.distance <= maxCeilingHeight) && (ceilingHit.collider.tag == "Wall"))
         {

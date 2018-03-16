@@ -8,7 +8,7 @@ public class SpawnEnemies : MonoBehaviour {
     public GameObject enemy;
     public static int waves = 2;
     public float delay = 3f;
-    static bool triggered = false;
+    bool triggered = false;
 
 	// Use this for initialization
 	void Start () {
