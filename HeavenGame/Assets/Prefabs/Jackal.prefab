@@ -91,7 +91,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 1
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!60 &60288248387977608
 PolygonCollider2D:
@@ -505,7 +505,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 15
-  detectionDistance: 25
+  detectionDistance: 30
   health: 1
   damage: 1
 --- !u!114 &114998642230587124
@@ -522,6 +522,8 @@ MonoBehaviour:
   jumpForce: 1000
   maxJumpRange: 15
   minJumpRange: 10
+  maxCeilingHeight: 18
+  distanceToTopOfObject: 1.7
 --- !u!212 &212734163831506084
 SpriteRenderer:
   m_ObjectHideFlags: 1
