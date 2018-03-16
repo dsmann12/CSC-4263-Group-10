@@ -17,7 +17,8 @@ public class JackalJump : MonoBehaviour
     private bool isOnCeiling = false;
     private float lastOnCeiling = 1f; // time since last on ceiling
     private float ceilingJumpWait = 3f; // least amount of time in seconds to wait before jackal will decide to jump to ceiling
-    private System.Random randomCeilingJumpChance; // for random chance that jackal will decide to jump to ceiling
+    private float ceilingJumpChance = 0.1f;
+    private float randomNumber = 1.0f;
 
 
     // initialize variables on awake
@@ -26,7 +27,11 @@ public class JackalJump : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.FindWithTag("Player");
         enemy = GetComponent<Enemy>();
-        randomCeilingJumpChance = new System.Random(this.GetHashCode());
+    }
+
+    private void Start()
+    {
+        InvokeRepeating("ChangeRandomNumber", 1.0f, 1.0f);
     }
 
     // Update is called once per frame
@@ -41,6 +46,7 @@ public class JackalJump : MonoBehaviour
 
         // update time since last on ceiling
         lastOnCeiling += Time.deltaTime;
+
     }
 
     void FixedUpdate()
@@ -61,7 +67,7 @@ public class JackalJump : MonoBehaviour
                 rb.gravityScale = 0; // for when Jackal starts on ceiling
             }
             // only jump to ceiling if Jackal detects player, lastOnCeiling 
-            else if (enemy.DetectedPlayer() && (lastOnCeiling >= ceilingJumpWait) && (randomCeilingJumpChance.NextDouble() <= 0.05)) 
+            else if (enemy.DetectedPlayer() && (lastOnCeiling >= ceilingJumpWait) && (randomNumber <= 0.1)) 
             {
                 JumpToCeiling();
             }
@@ -99,5 +105,11 @@ public class JackalJump : MonoBehaviour
         Vector2 localScale = transform.localScale;
         localScale.y *= -1;
         transform.localScale = localScale;
+    }
+
+    void ChangeRandomNumber()
+    {
+        randomNumber = Random.value;
+        Debug.Log("Object: " + GetInstanceID() + " random number = " + randomNumber);
     }
 }
