@@ -88,6 +88,12 @@ public class Enemy : MonoBehaviour
         return playerPosition.x - this.transform.position.x;
     }
 
+    // public method to check if detected player
+    public bool DetectedPlayer()
+    {
+        return detectedPlayer;
+    }
+
     // flip sprite by negating scale.x
     private void FlipSprite()
     {
