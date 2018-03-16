@@ -11,7 +11,7 @@ public class Aiming : MonoBehaviour {
         cam = Camera.main;
         leftFacing = false;
 	}
-    bool isLeftFacing()
+    public bool isLeftFacing()
     {
         return leftFacing;
     }

@@ -9,11 +9,16 @@ public class Movement : MonoBehaviour {
     MovementState currState;
     MovementState lastState;
     enum Direction { Left,Right};
-    Vector2 WalkSpeed = new Vector2(5, 0);
-    Vector2 RunSpeed = new Vector2(10, 0);
+    public int walkSpeed = 5;
+    public int runSpeed = 10;
+    Vector2 WalkVector;
+    Vector2 RunVector;
+    Vector2 LastSpeed;
+    public float dashTime = .5f;
+    float currDashTime = 0f;
     Direction dashDirection = Direction.Right;
-    int walkAcceleration = 10;
-    int runAcceleration = 20;
+    public int walkAcceleration = 10;
+    public int runAcceleration = 20;
     bool isJumping;
 	// Use this for initialization
 	void Start () {
@@ -22,37 +27,43 @@ public class Movement : MonoBehaviour {
         playerRigidBody.AddForce(new Vector2(0, 0));
         rigidBodyForce = playerRigidBody.GetComponent<ConstantForce2D>();
         isJumping = false;
+        WalkVector = new Vector2(walkSpeed, 0);
+        RunVector = new Vector2(runSpeed, 0);
 	}
-    void SetDashRight()
+    void UpdateDashDirection()
     {
-        dashDirection = Direction.Right;
-    }
-    void SetDashLeft()
-    {
-        dashDirection = Direction.Left;
+        Aiming aim = GetComponentInChildren<Aiming>();
+        if (aim.isLeftFacing() && currState!=MovementState.Dash)
+        {
+            dashDirection = Direction.Left;
+        }
+        else if (currState != MovementState.Dash)
+        {
+            dashDirection = Direction.Right;
+        }
     }
     void Walking(int dir)
     {
         if (dir == 1)
         {
-            if (playerRigidBody.velocity.x < WalkSpeed.x * dir && rigidBodyForce.force.x != dir * walkAcceleration)
+            if (playerRigidBody.velocity.x < WalkVector.x * dir && rigidBodyForce.force.x != dir * walkAcceleration)
             {
                 rigidBodyForce.force = new Vector2(dir * walkAcceleration, 0);
             }
-            else if (playerRigidBody.velocity.x >= WalkSpeed.x * dir)
+            else if (playerRigidBody.velocity.x >= WalkVector.x * dir)
             {
-                playerRigidBody.velocity = new Vector2(WalkSpeed.x * dir, playerRigidBody.velocity.y);
+                playerRigidBody.velocity = new Vector2(WalkVector.x * dir, playerRigidBody.velocity.y);
             }
         }
         else
         {
-            if (playerRigidBody.velocity.x > WalkSpeed.x * dir && rigidBodyForce.force.x != dir * walkAcceleration)
+            if (playerRigidBody.velocity.x > WalkVector.x * dir && rigidBodyForce.force.x != dir * walkAcceleration)
             {
                 rigidBodyForce.force = new Vector2(dir * walkAcceleration, 0);
             }
-            else if (playerRigidBody.velocity.x <= WalkSpeed.x * dir)
+            else if (playerRigidBody.velocity.x <= WalkVector.x * dir)
             {
-                playerRigidBody.velocity = new Vector2(WalkSpeed.x * dir, playerRigidBody.velocity.y);
+                playerRigidBody.velocity = new Vector2(WalkVector.x * dir, playerRigidBody.velocity.y);
             }
         }
 
@@ -62,24 +73,24 @@ public class Movement : MonoBehaviour {
     {
         if (dir == 1)
         {
-            if (playerRigidBody.velocity.x < RunSpeed.x * dir && rigidBodyForce.force.x != dir*runAcceleration)
+            if (playerRigidBody.velocity.x < RunVector.x * dir && rigidBodyForce.force.x != dir*runAcceleration)
             {
                 rigidBodyForce.force = new Vector2(dir * runAcceleration, 0);
             }
-            else if (playerRigidBody.velocity.x >= RunSpeed.x * dir)
+            else if (playerRigidBody.velocity.x >= RunVector.x * dir)
             {
-                playerRigidBody.velocity = new Vector2(RunSpeed.x*dir, playerRigidBody.velocity.y);
+                playerRigidBody.velocity = new Vector2(RunVector.x*dir, playerRigidBody.velocity.y);
             }
         }
         else
         {
-            if (playerRigidBody.velocity.x > RunSpeed.x * dir && rigidBodyForce.force.x != dir*runAcceleration)
+            if (playerRigidBody.velocity.x > RunVector.x * dir && rigidBodyForce.force.x != dir*runAcceleration)
             {
                 rigidBodyForce.force = new Vector2(dir * runAcceleration, 0);
             }
-            else if (playerRigidBody.velocity.x <= RunSpeed.x * dir)
+            else if (playerRigidBody.velocity.x <= RunVector.x * dir)
             {
-                playerRigidBody.velocity = new Vector2(RunSpeed.x*dir, playerRigidBody.velocity.y);
+                playerRigidBody.velocity = new Vector2(RunVector.x*dir, playerRigidBody.velocity.y);
             }
         }
 
@@ -87,67 +98,95 @@ public class Movement : MonoBehaviour {
     }
     void Standing()
     {
-        if (rigidBodyForce.force.x != 0)
+        if (playerRigidBody.velocity.x !=0)
         {
-            rigidBodyForce.force = new Vector2(0, 0);
+            playerRigidBody.velocity = new Vector2(0, playerRigidBody.velocity.y);
+            rigidBodyForce.force = new Vector2(0, rigidBodyForce.force.y);
+            
         }
     }
     void Jump()
     {
         if (!isJumping)
         {
-            playerRigidBody.AddForce(new Vector2(0, 10), ForceMode2D.Impulse);
+            playerRigidBody.AddForce(new Vector2(0, 15), ForceMode2D.Impulse);
             isJumping = true;
         }
 
     }
-    void Dash()
+    void Dashing()
     {
         if (dashDirection == Direction.Right)
         {
-            playerRigidBody.velocity = new Vector2(0, playerRigidBody.velocity.y);
-            rigidBodyForce.force = new Vector2(0, 0);
-            playerRigidBody.AddForce(new Vector2(20, 0), ForceMode2D.Impulse);
+            if(playerRigidBody.velocity.x != RunVector.x * 3)
+            {
+                playerRigidBody.velocity = new Vector2(RunVector.x * 3, playerRigidBody.velocity.y);
+                if (rigidBodyForce.force.x != 0)
+                {
+                    rigidBodyForce.force = new Vector2(0, rigidBodyForce.force.y);
+                }
+            }
         }
         else
         {
-            playerRigidBody.velocity = new Vector2(0, playerRigidBody.velocity.y);
-            rigidBodyForce.force = new Vector2(0, 0);
-            playerRigidBody.AddForce(new Vector2(-20, 0), ForceMode2D.Impulse);
+            if (playerRigidBody.velocity.x != RunVector.x * -3)
+            {
+                playerRigidBody.velocity = new Vector2(RunVector.x * -3, playerRigidBody.velocity.y);
+                if (rigidBodyForce.force.x != 0)
+                {
+                    rigidBodyForce.force = new Vector2(0, rigidBodyForce.force.y);
+                }
+            }
         }
+        if (currDashTime > dashTime)
+        {
+            currState = lastState;
+            playerRigidBody.velocity = new Vector2(LastSpeed.x, 0);
+            currDashTime = 0f;
+        }
+        currDashTime += Time.deltaTime;
         
     }
     void updateState()
     {
-        
+        UpdateDashDirection();
         if(Mathf.Abs(playerRigidBody.velocity.y) <= .01 && isJumping)
         {
             isJumping = false;
         }
-        if ((Input.GetKey(KeyCode.RightArrow)||Input.GetKey(KeyCode.D)) && !Input.GetKey(KeyCode.LeftShift) && currState != MovementState.WalkingRight)
+        if (Input.GetKeyDown(KeyCode.LeftControl) && currState!=MovementState.Dash)
         {
             lastState = currState;
-            currState = MovementState.RunningRight;
+            LastSpeed = playerRigidBody.velocity;
+            currState = MovementState.Dash;
         }
-        else if ((Input.GetKey(KeyCode.RightArrow)||Input.GetKey(KeyCode.D)) && Input.GetKey(KeyCode.LeftShift) && currState != MovementState.RunningRight)
+        else if(currState!=MovementState.Dash)
         {
-            lastState = currState;
-            currState = MovementState.WalkingRight;
-        }
-        else if ((Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A)) && !Input.GetKey(KeyCode.LeftShift) && currState != MovementState.WalkingLeft)
-        {
-            lastState = currState;
-            currState = MovementState.RunningLeft;
-        }
-        else if ((Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A)) && Input.GetKey(KeyCode.LeftShift) && currState != MovementState.RunningLeft)
-        {
-            lastState = currState;
-            currState = MovementState.WalkingLeft;
-        }
-        else if (currState != MovementState.Standing)
-        {
-            lastState = currState;
-            currState = MovementState.Standing;
+            if ((Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D)) && !Input.GetKey(KeyCode.LeftShift) && currState != MovementState.WalkingRight)
+            {
+                lastState = currState;
+                currState = MovementState.RunningRight;
+            }
+            else if ((Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D)) && Input.GetKey(KeyCode.LeftShift) && currState != MovementState.RunningRight)
+            {
+                lastState = currState;
+                currState = MovementState.WalkingRight;
+            }
+            else if ((Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A)) && !Input.GetKey(KeyCode.LeftShift) && currState != MovementState.WalkingLeft)
+            {
+                lastState = currState;
+                currState = MovementState.RunningLeft;
+            }
+            else if ((Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A)) && Input.GetKey(KeyCode.LeftShift) && currState != MovementState.RunningLeft)
+            {
+                lastState = currState;
+                currState = MovementState.WalkingLeft;
+            }
+            else if (currState != MovementState.Standing)
+            {
+                lastState = currState;
+                currState = MovementState.Standing;
+            }
         }
         
     }
@@ -157,15 +196,13 @@ public class Movement : MonoBehaviour {
         {
             Jump();
         }
-        if (Input.GetKeyDown(KeyCode.LeftControl))
-        {
-            Dash();  
-        }
         updateState();
         //-1 is for left, 1 is for right. It's multiplied with the acceleration magnitude to give proper direction.
-
         switch (currState)
         {
+            case MovementState.Dash:
+                Dashing();
+                break;
             case MovementState.WalkingLeft:
                 Walking(-1);
                 break;

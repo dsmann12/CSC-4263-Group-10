@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Shooting : MonoBehaviour {
     GameObject player;
+    public float bulletCooldown = .5f;
+    float cooldownTicker = 0f;
+    bool onCooldown = false;
 	// Use this for initialization
 	void Start () {
         GameObject[] objs = FindObjectsOfType<GameObject>();
@@ -64,9 +67,19 @@ public class Shooting : MonoBehaviour {
     }
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.E))
+        if ((Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.E)) && !onCooldown )
         {
             Shoot();
+            onCooldown = true;
+        }
+        else if(onCooldown)
+        {
+            cooldownTicker += Time.deltaTime;
+            if (cooldownTicker > bulletCooldown)
+            {
+                onCooldown = false;
+                cooldownTicker = 0f;
+            }
         }
 	}
 }
