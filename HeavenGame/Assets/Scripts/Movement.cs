@@ -20,6 +20,10 @@ public class Movement : MonoBehaviour {
     public int walkAcceleration = 10;
     public int runAcceleration = 20;
     bool isJumping;
+
+    // animator
+    private Animator anim;
+
 	// Use this for initialization
 	void Start () {
         playerRigidBody = this.GetComponent<Rigidbody2D>();
@@ -29,6 +33,9 @@ public class Movement : MonoBehaviour {
         isJumping = false;
         WalkVector = new Vector2(walkSpeed, 0);
         RunVector = new Vector2(runSpeed, 0);
+
+        // set animator
+        anim = GetComponent<Animator>();
 	}
     void UpdateDashDirection()
     {
@@ -219,5 +226,11 @@ public class Movement : MonoBehaviour {
                 Running(1);
                 break;
         }
+
+        float speedX = Mathf.Abs(playerRigidBody.velocity.x);
+
+
+        anim.SetFloat("SpeedX", speedX);
+      
 	}
 }
