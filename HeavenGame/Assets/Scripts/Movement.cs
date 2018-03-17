@@ -231,6 +231,7 @@ public class Movement : MonoBehaviour {
 
 
         anim.SetFloat("SpeedX", speedX);
+        anim.SetBool("IsJumping", isJumping);
       
 	}
 }
