@@ -23,6 +23,7 @@ public class Shooting : MonoBehaviour {
 
         // Get Ammo
         ammo = player.GetComponent<Ammo>();
+        Physics2D.IgnoreLayerCollision(9, 10);
 	}
 	void Shoot()
     {
@@ -45,6 +46,7 @@ public class Shooting : MonoBehaviour {
         }
         
         GameObject bullet = new GameObject();
+        bullet.layer = 9;
         bullet.AddComponent<SpriteRenderer>();
         SpriteRenderer bulletSprite = bullet.GetComponent<SpriteRenderer>();
         bulletSprite.sprite = Resources.Load<Sprite>("Bullet");

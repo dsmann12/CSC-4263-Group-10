@@ -1,0 +1,376 @@
+fileFormatVersion: 2
+guid: af79af179d0c6494fa0a04c864fba179
+timeCreated: 1521398449
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: torsolegframes_0
+    21300002: torsolegframes_1
+    21300004: torsolegframes_2
+    21300006: torsolegframes_3
+    21300008: torsolegframes_4
+    21300010: torsolegframes_5
+    21300012: torsolegframes_6
+    21300014: torsolegframes_7
+    21300016: torsolegframes_8
+    21300018: torsolegframes_9
+    21300020: torsolegframes_10
+    21300022: torsolegframes_11
+    21300024: torsolegframes_12
+    21300026: torsolegframes_13
+    21300028: torsolegframes_14
+    21300030: torsolegframes_15
+    21300032: torsolegframes_16
+    21300034: torsolegframes_17
+    21300036: torsolegframes_18
+    21300038: torsolegframes_19
+    21300040: torsolegframes_20
+    21300042: torsolegframes_21
+    21300044: torsolegframes_22
+    21300046: torsolegframes_23
+    21300048: torsolegframes_24
+    21300050: torsolegframes_25
+    21300052: torsolegframes_26
+    21300054: torsolegframes_27
+    21300056: torsolegframes_28
+    21300058: torsolegframes_29
+    21300060: torsolegframes_30
+    21300062: torsolegframes_31
+    21300064: torsolegframes_32
+    21300066: torsolegframes_33
+    21300068: torsolegframes_34
+    21300070: torsolegframes_35
+    21300072: torsolegframes_36
+    21300074: torsolegframes_37
+    21300076: torsolegframes_38
+    21300078: torsolegframes_39
+    21300080: torsolegframes_40
+    21300082: torsolegframes_41
+    21300084: torsolegframes_42
+    21300086: torsolegframes_43
+    21300088: torsolegframes_44
+    21300090: torsolegframes_45
+    21300092: torsolegframes_46
+    21300094: torsolegframes_47
+    21300096: torsolegframes_48
+    21300098: torsolegframes_49
+    21300100: torsolegframes_50
+    21300102: torsolegframes_51
+    21300104: torsolegframes_52
+    21300106: torsolegframes_53
+    21300108: torsolegframes_54
+    21300110: torsolegframes_55
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 75
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: torsolegframes_8
+      rect:
+        serializedVersion: 2
+        x: 1306
+        y: 1006
+        width: 170
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: torsolegframes_12
+      rect:
+        serializedVersion: 2
+        x: 940
+        y: 996
+        width: 224
+        height: 351
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: torsolegframes_13
+      rect:
+        serializedVersion: 2
+        x: 1638
+        y: 997
+        width: 236
+        height: 350
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: torsolegframes_15
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 997
+        width: 169
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: torsolegframes_16
+      rect:
+        serializedVersion: 2
+        x: 556
+        y: 997
+        width: 170
+        height: 345
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: torsolegframes_22
+      rect:
+        serializedVersion: 2
+        x: 2053
+        y: 987
+        width: 147
+        height: 335
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: torsolegframes_34
+      rect:
+        serializedVersion: 2
+        x: 889
+        y: 520
+        width: 165
+        height: 359
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: torsolegframes_35
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 545
+        width: 185
+        height: 329
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: torsolegframes_37
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 540
+        width: 198
+        height: 334
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: torsolegframes_38
+      rect:
+        serializedVersion: 2
+        x: 1211
+        y: 508
+        width: 185
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: torsolegframes_39
+      rect:
+        serializedVersion: 2
+        x: 1579
+        y: 524
+        width: 171
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: torsolegframes_41
+      rect:
+        serializedVersion: 2
+        x: 1918
+        y: 506
+        width: 146
+        height: 359
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: torsolegframes_51
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 72
+        width: 275
+        height: 381
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: torsolegframes_52
+      rect:
+        serializedVersion: 2
+        x: 523
+        y: 73
+        width: 170
+        height: 381
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: torsolegframes_53
+      rect:
+        serializedVersion: 2
+        x: 850
+        y: 69
+        width: 199
+        height: 384
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: torsolegframes_54
+      rect:
+        serializedVersion: 2
+        x: 1203
+        y: 60
+        width: 208
+        height: 405
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: torsolegframes_55
+      rect:
+        serializedVersion: 2
+        x: 1545
+        y: 54
+        width: 317
+        height: 380
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    outline: []
+    physicsShape: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
