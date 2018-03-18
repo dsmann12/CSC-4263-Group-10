@@ -60,6 +60,7 @@ GameObject:
   - component: {fileID: 247782558834896300}
   - component: {fileID: 114893031896133352}
   - component: {fileID: 95206677955271956}
+  - component: {fileID: 114828812800132062}
   m_Layer: 10
   m_Name: Wanderer
   m_TagString: Player
@@ -225,6 +226,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletCooldown: 0.5
+--- !u!114 &114828812800132062
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1921557007631292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d5594f30c561a84ebb5cd8b117856cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  limit: 10
+  amount: 10
+  isOutOfAmmo: 0
 --- !u!114 &114864645032109642
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -247,7 +262,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b172e2c5891f3ea43b2831d8f91f3814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 2
+  amount: 2
+  takingDamage: 0
 --- !u!114 &114924559107689198
 MonoBehaviour:
   m_ObjectHideFlags: 1
