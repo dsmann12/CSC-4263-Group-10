@@ -7,6 +7,8 @@ public class Shooting : MonoBehaviour {
     public float bulletCooldown = .5f;
     float cooldownTicker = 0f;
     bool onCooldown = false;
+    Ammo ammo;
+
 	// Use this for initialization
 	void Start () {
         GameObject[] objs = FindObjectsOfType<GameObject>();
@@ -18,6 +20,9 @@ public class Shooting : MonoBehaviour {
                 break;
             }
         }
+
+        // Get Ammo
+        ammo = player.GetComponent<Ammo>();
 	}
 	void Shoot()
     {
@@ -64,10 +69,13 @@ public class Shooting : MonoBehaviour {
 
         // add tag to bullet
         bullet.tag = "PlayerBullet";
+
+        // decrement ammo
+        ammo.amount -= 1;
     }
 	// Update is called once per frame
 	void Update () {
-        if ((Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.E)) && !onCooldown )
+        if ((Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.E)) && !onCooldown && !ammo.isOutOfAmmo)
         {
             Shoot();
             onCooldown = true;
