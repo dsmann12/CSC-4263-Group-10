@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BulletMovement : MonoBehaviour {
-    float speed = 20f;
+    float speed = 40f;
     float spawnTime;
     float lifetime = 5;
     float despawnDistance = 40f;

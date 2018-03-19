@@ -20,6 +20,7 @@ public class Movement : MonoBehaviour {
     public int walkAcceleration = 10;
     public int runAcceleration = 20;
     bool isJumping;
+    bool isDoubleJumping;
     public float jumpForce = 15f;
 
     // animator
@@ -115,10 +116,17 @@ public class Movement : MonoBehaviour {
     }
     void Jump()
     {
-        if (!isJumping)
+        if (!isDoubleJumping)
         {
             playerRigidBody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-            isJumping = true;
+            if (!isJumping)
+            {
+                isJumping = true;
+            }
+            else if (!isDoubleJumping)
+            {
+                isDoubleJumping = true;
+            }
         }
 
     }
@@ -161,6 +169,7 @@ public class Movement : MonoBehaviour {
         if(Mathf.Abs(playerRigidBody.velocity.y) <= .01 && isJumping)
         {
             isJumping = false;
+            isDoubleJumping = false;
         }
         if (Input.GetKeyDown(KeyCode.LeftControl) && currState!=MovementState.Dash)
         {
