@@ -8,6 +8,8 @@ public class Enemy : MonoBehaviour
     public float detectionDistance = 10f;
     public float health = 1;
     public float damage = 1;
+    public float unalertedGrowlRate = .5f;
+    public float alertedGrowlRate = .5f;
 
     private Rigidbody2D rb;
     private GameObject player;
@@ -17,12 +19,15 @@ public class Enemy : MonoBehaviour
 
     private Animator anim;
 
+    private AudioSource[] growlSources;
+
     // Use this for initialization
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.FindWithTag("Player");
         anim = GetComponent<Animator>();
+        growlSources = GetComponents<AudioSource>();
     }
 
     // Update is called once per frame
@@ -40,6 +45,11 @@ public class Enemy : MonoBehaviour
         if (Mathf.Abs(positionDiff) <= detectionDistance)
         {
             detectedPlayer = true;
+
+            //Stop unalerted growl and play alerted growl
+            growlSources[0].Stop();
+            int randi = Random.Range(1, growlSources.Length);
+            growlSources[randi].Play();
 
             // for when adding animation states
             //Animator anim = GetComponent<Animator>();
@@ -68,6 +78,7 @@ public class Enemy : MonoBehaviour
 
     void FixedUpdate()
     {
+        float invDeltaTime = 1f / Time.deltaTime;
         if (detectedPlayer)
         {
             Vector2 direction = (positionDiff > 0) ? Vector2.right : Vector2.left;
@@ -81,6 +92,20 @@ public class Enemy : MonoBehaviour
             {
                 rb.velocity = rb.velocity.normalized * speed;
             }
+            //Play alerted growl infrequently
+            float rand = Random.Range(0f, 1f / invDeltaTime);
+            if (rand <= unalertedGrowlRate)
+            {
+                int randi = Random.Range(1, growlSources.Length);
+                growlSources[randi].Play();
+            }
+        }
+        else
+        {
+            //Play unalerted growl infrequently
+            float rand = Random.Range(0f, 1f / invDeltaTime);
+            if (rand <= unalertedGrowlRate)
+                growlSources[0].Play();
         }
 
 

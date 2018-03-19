@@ -8,6 +8,7 @@ public class Shooting : MonoBehaviour {
     float cooldownTicker = 0f;
     bool onCooldown = false;
     Ammo ammo;
+    AudioSource[] gunSounds;
 
 	// Use this for initialization
 	void Start () {
@@ -24,6 +25,9 @@ public class Shooting : MonoBehaviour {
         // Get Ammo
         ammo = player.GetComponent<Ammo>();
         Physics2D.IgnoreLayerCollision(9, 10);
+
+        //Get Audio Sources
+        gunSounds = GetComponents<AudioSource>();
 	}
 	void Shoot()
     {
@@ -74,6 +78,10 @@ public class Shooting : MonoBehaviour {
 
         // decrement ammo
         ammo.amount -= 1;
+
+        // Play sound
+        int rand = Random.Range(0, gunSounds.Length);
+        gunSounds[rand].Play();
     }
 	// Update is called once per frame
 	void Update () {
