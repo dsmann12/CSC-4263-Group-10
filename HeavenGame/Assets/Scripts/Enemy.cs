@@ -10,6 +10,7 @@ public class Enemy : MonoBehaviour
     public float damage = 1;
     public float unalertedGrowlRate = .5f;
     public float alertedGrowlRate = .5f;
+    public LayerMask mask = -1;
 
     private Rigidbody2D rb;
     private GameObject player;
@@ -42,8 +43,11 @@ public class Enemy : MonoBehaviour
 
         // calculate distance to player and check if player is detected
         positionDiff = CalculateDistanceToPlayer();
-        if (Mathf.Abs(positionDiff) <= detectionDistance)
+        RaycastHit2D ceilingHit = Physics2D.Raycast(transform.position, Vector2.up, Mathf.Infinity, mask.value);
+        RaycastHit2D floorHit = Physics2D.Raycast(transform.position, Vector2.down, Mathf.Infinity, mask.value);
+        if ( (Mathf.Abs(positionDiff) <= detectionDistance) && (ceilingHit.point.y > player.transform.position.y) && (floorHit.point.y < player.transform.position.y))
         {
+            Debug.Log("Detected player");
             detectedPlayer = true;
 
             //Stop unalerted growl and play alerted growl

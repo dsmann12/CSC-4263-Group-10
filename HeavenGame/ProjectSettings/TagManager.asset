@@ -19,9 +19,9 @@ TagManager:
   - Wall
   - Bullet
   - Player
-  - 
-  - 
-  - 
+  - Enemy
+  - CeilingWalker
+  - Ceiling
   - 
   - 
   - 

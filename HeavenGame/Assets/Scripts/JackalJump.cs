@@ -67,7 +67,8 @@ public class JackalJump : MonoBehaviour
             {
                 isOnCeiling = true;
                 FlipSpriteVertically();
-                rb.gravityScale = 0; // for when Jackal starts on ceiling
+                rb.gravityScale = -1; // for when Jackal starts on ceiling
+                gameObject.layer = LayerMask.NameToLayer("CeilingWalker");
             }
             // only jump to ceiling if Jackal detects player, lastOnCeiling 
             else if (enemy.DetectedPlayer() && (lastOnCeiling >= ceilingJumpWait) && (randomNumber <= 0.1)) 
@@ -80,13 +81,15 @@ public class JackalJump : MonoBehaviour
         float playerDist = Mathf.Floor(Mathf.Abs(enemy.CalculateDistanceToPlayer()));
 
         // if player distance is <= the max range to begin a jump and >= the min range to begin a jump, and object not jumping, then jump
-        if ((playerDist <= maxJumpRange && playerDist >= minJumpRange) && !isJumping)
+        if (enemy.DetectedPlayer() && (playerDist <= maxJumpRange && playerDist >= minJumpRange) && !isJumping 
+            && ((player.transform.position.y >= transform.position.y && !isOnCeiling) || (player.transform.position.y <= transform.position.y && isOnCeiling)))
         {
             // if jackal is on ceiling, jump down, else jump up
             Vector2 direction = (isOnCeiling) ? Vector2.down : Vector2.up;
             rb.AddForce(direction * jumpForce);
             isJumping = true;
             rb.gravityScale = 1; // set gravity to one in case jackal was on ceiling
+            gameObject.layer = LayerMask.NameToLayer("Enemy");
             if (isOnCeiling)
             {
                 FlipSpriteVertically();
@@ -99,8 +102,9 @@ public class JackalJump : MonoBehaviour
     void JumpToCeiling()
     {
         rb.AddForce(Vector2.up * 3000f);
-        rb.gravityScale = 0;
+        rb.gravityScale = -1;
         isJumping = true;
+        gameObject.layer = LayerMask.NameToLayer("CeilingWalker");
     }
 
     void FlipSpriteVertically()
