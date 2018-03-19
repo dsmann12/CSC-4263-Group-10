@@ -15,11 +15,14 @@ public class Enemy : MonoBehaviour
     private float positionDiff = int.MaxValue;
     private bool facingRight = false;
 
+    private Animator anim;
+
     // Use this for initialization
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.FindWithTag("Player");
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -39,26 +42,28 @@ public class Enemy : MonoBehaviour
             detectedPlayer = true;
 
             // for when adding animation states
-            Animator anim = GetComponent<Animator>();
-            if (anim != null)
-            {
-                //anim.SetBool("detectedPlayer", detectedPlayer);
-                anim.enabled = false;
-            }
+            //Animator anim = GetComponent<Animator>();
+            //if (anim != null)
+            //{
+            //    //anim.SetBool("detectedPlayer", detectedPlayer);
+            //    anim.enabled = false;
+            //}
         }
 
         // flip sprite if necessary
         // based on velocity
         // should i base it on player?
-        if (rb.velocity.x < 0 && facingRight)
+        float speedX = rb.velocity.x;
+        if (speedX < 0 && facingRight)
         {
             FlipSprite();
         }
-        else if (rb.velocity.x > 0 && !facingRight)
+        else if (speedX > 0 && !facingRight)
         {
             FlipSprite();
         }
 
+        anim.SetFloat("SpeedX", Mathf.Abs(speedX));
     }
 
     void FixedUpdate()

@@ -20,6 +20,7 @@ public class Movement : MonoBehaviour {
     public int walkAcceleration = 10;
     public int runAcceleration = 20;
     bool isJumping;
+    public float jumpForce = 15f;
 
     // animator
     private Animator anim;
@@ -116,7 +117,7 @@ public class Movement : MonoBehaviour {
     {
         if (!isJumping)
         {
-            playerRigidBody.AddForce(new Vector2(0, 15), ForceMode2D.Impulse);
+            playerRigidBody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             isJumping = true;
         }
 

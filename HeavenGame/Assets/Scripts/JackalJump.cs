@@ -20,6 +20,8 @@ public class JackalJump : MonoBehaviour
     private float ceilingJumpChance = 0.1f;
     private float randomNumber = 1.0f;
 
+    private Animator anim;
+
 
     // initialize variables on awake
     private void Awake()
@@ -27,6 +29,7 @@ public class JackalJump : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.FindWithTag("Player");
         enemy = GetComponent<Enemy>();
+        anim = GetComponent<Animator>();
     }
 
     private void Start()
@@ -47,6 +50,7 @@ public class JackalJump : MonoBehaviour
         // update time since last on ceiling
         lastOnCeiling += Time.deltaTime;
 
+        anim.SetBool("IsJumping", isJumping);
     }
 
     void FixedUpdate()
