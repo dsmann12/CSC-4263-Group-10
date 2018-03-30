@@ -569,7 +569,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4158471142244816, guid: b0ddb0796ac8835448c39e831e325aa1, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4158471142244816, guid: b0ddb0796ac8835448c39e831e325aa1, type: 2}
       propertyPath: m_LocalRotation.x
@@ -909,6 +909,8 @@ GameObject:
   - component: {fileID: 1405196599}
   - component: {fileID: 1405196600}
   - component: {fileID: 1405196601}
+  - component: {fileID: 1405196603}
+  - component: {fileID: 1405196602}
   m_Layer: 8
   m_Name: PolygonCollider (2)
   m_TagString: Untagged
@@ -940,7 +942,7 @@ PolygonCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 1
-  m_UsedByComposite: 0
+  m_UsedByComposite: 1
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -996,6 +998,123 @@ PlatformEffector2D:
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
+--- !u!66 &1405196602
+CompositeCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1405196598}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 1
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_GeometryType: 0
+  m_GenerationType: 0
+  m_EdgeRadius: 0
+  m_ColliderPaths:
+  - m_Collider: {fileID: 1405196600}
+    m_ColliderPaths:
+    - - X: 19032478
+        Y: 6583910
+      - X: -36839296
+        Y: 3578186
+      - X: -36839296
+        Y: -7890119
+      - X: -5877852
+        Y: -8090170
+      - X: 11522865
+        Y: -4437527
+      - X: 358268672
+        Y: -3263168
+      - X: 546969280
+        Y: -25895772
+      - X: 550582528
+        Y: -25917782
+      - X: 574945856
+        Y: -18863320
+      - X: 647787456
+        Y: -17656722
+      - X: 737283392
+        Y: -16690221
+      - X: 824431680
+        Y: -5294013
+      - X: 859046400
+        Y: -5760274
+      - X: 969574592
+        Y: -6941085
+      - X: 969571392
+        Y: 4041500
+      - X: 825729856
+        Y: 8310776
+      - X: 738866432
+        Y: -1596489
+      - X: 739851712
+        Y: -611276
+      - X: 738256384
+        Y: 16657133
+      - X: 648763712
+        Y: 12510443
+      - X: 648378432
+        Y: -1811156
+      - X: 558736256
+        Y: -2409105
+      - X: 542182080
+        Y: -5323820
+      - X: 415093088
+        Y: 4703493
+      - X: 303987392
+        Y: 11738615
+  m_CompositePaths:
+    m_Paths:
+    - - {x: 57.494587, y: -1.886332}
+      - {x: 64.77875, y: -1.7656722}
+      - {x: 73.72834, y: -1.6690221}
+      - {x: 82.44317, y: -0.5294013}
+      - {x: 85.90464, y: -0.5760274}
+      - {x: 96.95746, y: -0.6941085}
+      - {x: 96.95714, y: 0.40415}
+      - {x: 82.57298, y: 0.83107764}
+      - {x: 73.88664, y: -0.1596489}
+      - {x: 73.98517, y: -0.0611276}
+      - {x: 73.82564, y: 1.6657133}
+      - {x: 64.87637, y: 1.2510443}
+      - {x: 64.837845, y: -0.1811156}
+      - {x: 55.873627, y: -0.2409105}
+      - {x: 54.21821, y: -0.532382}
+      - {x: 41.509308, y: 0.4703493}
+      - {x: 30.398739, y: 1.1738615}
+      - {x: 1.9032478, y: 0.658391}
+      - {x: -3.6839297, y: 0.3578186}
+      - {x: -3.6839297, y: -0.7890119}
+      - {x: -0.5877852, y: -0.809017}
+      - {x: 1.1522865, y: -0.4437527}
+      - {x: 35.826866, y: -0.3263168}
+      - {x: 54.69693, y: -2.5895772}
+      - {x: 55.058254, y: -2.5917783}
+  m_VertexDistance: 0.0005
+--- !u!50 &1405196603
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1405196598}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1542487506
 GameObject:
   m_ObjectHideFlags: 0
@@ -1141,7 +1260,7 @@ Prefab:
     - target: {fileID: 20786816879786028, guid: 466cb53b67f6b5e44a5ad8642ac4707a,
         type: 2}
       propertyPath: orthographic size
-      value: 26
+      value: 28.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 466cb53b67f6b5e44a5ad8642ac4707a, type: 2}
