@@ -12,6 +12,7 @@ public class Projectile : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        Debug.Log("Fuck colliding in projectile");
         if (collision.gameObject.tag != "Enemy" && collision.gameObject.tag != "Player")
         {
             Destroy(gameObject);

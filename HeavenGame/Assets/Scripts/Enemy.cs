@@ -16,7 +16,7 @@ public class Enemy : MonoBehaviour
     private GameObject player;
     private bool detectedPlayer = false;
     private float positionDiff = int.MaxValue;
-    private bool facingRight = false;
+    public bool facingRight = false;
 
     private Animator anim;
 
@@ -51,9 +51,9 @@ public class Enemy : MonoBehaviour
             detectedPlayer = true;
 
             //Stop unalerted growl and play alerted growl
-            growlSources[0].Stop();
-            int randi = Random.Range(1, growlSources.Length);
-            growlSources[randi].Play();
+            //growlSources[0].Stop();
+            //int randi = Random.Range(1, growlSources.Length);
+            //growlSources[randi].Play();
 
             // for when adding animation states
             //Animator anim = GetComponent<Animator>();
@@ -68,11 +68,12 @@ public class Enemy : MonoBehaviour
         // based on velocity
         // should i base it on player?
         float speedX = rb.velocity.x;
-        if (speedX < 0 && facingRight)
+        //Debug.Log("Speed x is " + speedX.ToString());
+        if ((speedX < 0.0f) && facingRight)
         {
             FlipSprite();
         }
-        else if (speedX > 0 && !facingRight)
+        else if ((speedX > 0.0f) && !facingRight)
         {
             FlipSprite();
         }
@@ -97,19 +98,19 @@ public class Enemy : MonoBehaviour
                 rb.velocity = rb.velocity.normalized * speed;
             }
             //Play alerted growl infrequently
-            float rand = Random.Range(0f, 1f / invDeltaTime);
-            if (rand <= unalertedGrowlRate)
-            {
-                int randi = Random.Range(1, growlSources.Length);
-                growlSources[randi].Play();
-            }
+            //float rand = Random.Range(0f, 1f / invDeltaTime);
+            //if (rand <= unalertedGrowlRate)
+            //{
+            //    int randi = Random.Range(1, growlSources.Length);
+            //    growlSources[randi].Play();
+            //}
         }
         else
         {
             //Play unalerted growl infrequently
-            float rand = Random.Range(0f, 1f / invDeltaTime);
-            if (rand <= unalertedGrowlRate)
-                growlSources[0].Play();
+            //float rand = Random.Range(0f, 1f / invDeltaTime);
+            //if (rand <= unalertedGrowlRate)
+            //    growlSources[0].Play();
         }
 
 
@@ -131,6 +132,7 @@ public class Enemy : MonoBehaviour
     // flip sprite by negating scale.x
     private void FlipSprite()
     {
+        Debug.Log("Flip sprite");
         facingRight = !facingRight;
         Vector2 localScale = transform.localScale;
         localScale.x *= -1;
