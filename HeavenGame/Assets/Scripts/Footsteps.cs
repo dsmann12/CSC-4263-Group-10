@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Footsteps : MonoBehaviour {
     AudioSource[] footsteps;
+	public int number = 5;
 
 	// Use this for initialization
 	void Start () {
@@ -11,7 +12,7 @@ public class Footsteps : MonoBehaviour {
 	}
 	
     void playFootstep(){
-        int rand = Random.Range(0, footsteps.Length);
+        int rand = Random.Range(0, number - 1);
         footsteps[rand].Play();
     }
 	// Update is called once per frame

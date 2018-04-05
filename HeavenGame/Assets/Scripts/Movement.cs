@@ -22,6 +22,8 @@ public class Movement : MonoBehaviour {
     bool isJumping;
     bool isDoubleJumping;
     public float jumpForce = 15f;
+    AudioSource[] audioSources;
+    private int smokeDash;
 
     // animator
     private Animator anim;
@@ -35,6 +37,8 @@ public class Movement : MonoBehaviour {
         isJumping = false;
         WalkVector = new Vector2(walkSpeed, 0);
         RunVector = new Vector2(runSpeed, 0);
+        audioSources = this.GetComponents<AudioSource>();
+        smokeDash = audioSources.Length - 1;
 
         // set animator
         anim = GetComponent<Animator>();
@@ -176,6 +180,7 @@ public class Movement : MonoBehaviour {
             lastState = currState;
             LastSpeed = playerRigidBody.velocity;
             currState = MovementState.Dash;
+            audioSources[smokeDash].Play();
         }
         else if(currState!=MovementState.Dash)
         {
