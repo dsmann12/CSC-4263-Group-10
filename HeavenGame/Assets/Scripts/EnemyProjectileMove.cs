@@ -44,7 +44,11 @@ public class EnemyProjectileMove : MonoBehaviour {
         if (collision.gameObject.tag == "Player")
         {
             Health health = collision.gameObject.GetComponent<Health>();
-            health.DecreaseHelth(1.0f); // replace with damage
+            if (!health.takingDamage)
+            {
+                health.DecreaseHelth(enemy.damage); // replace with damage
+                health.takingDamage = true;
+            }
             Destroy(gameObject);
         }
     }

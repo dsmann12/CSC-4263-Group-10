@@ -44,6 +44,16 @@ public class Health : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        HandleEnemyCollision(collision.collider);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        HandleEnemyCollision(collision);
+    }
+
+    private void HandleEnemyCollision(Collider2D collision)
+    {
         GameObject obj = collision.gameObject;
         if (obj.tag == "Enemy" && !takingDamage)
         {
