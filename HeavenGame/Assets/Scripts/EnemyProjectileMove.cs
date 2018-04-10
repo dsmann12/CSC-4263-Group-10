@@ -38,7 +38,7 @@ public class EnemyProjectileMove : MonoBehaviour {
         rb.velocity = new Vector2(xspeed, 0.0f);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("Enemy bullet collision");
         if (collision.gameObject.tag == "Player")

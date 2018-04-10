@@ -71,7 +71,7 @@ public class JackalJump : MonoBehaviour
                 gameObject.layer = LayerMask.NameToLayer("CeilingWalker");
             }
             // only jump to ceiling if Jackal detects player, lastOnCeiling 
-            else if (enemy.DetectedPlayer() && (lastOnCeiling >= ceilingJumpWait) && (randomNumber <= 0.1)) 
+            else if (enemy.DetectedPlayer() && (lastOnCeiling >= ceilingJumpWait) && (randomNumber <= ceilingJumpChance)) 
             {
                 JumpToCeiling();
             }

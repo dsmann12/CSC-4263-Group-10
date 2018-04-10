@@ -7,6 +7,8 @@ public class RobotShoot : MonoBehaviour {
     public GameObject projectile;
     public float delay;
     public float fireRate;
+    public float reloadTime;
+    public uint fireLimit;
     private bool isFiring = false;
     private Enemy enemy;
 
@@ -24,19 +26,38 @@ public class RobotShoot : MonoBehaviour {
         if (enemy.DetectedPlayer() && !isFiring)
         {
             isFiring = true;
-            InvokeRepeating("Fire", delay, fireRate);
+            StartCoroutine(Shoot());
         } else if (!enemy.DetectedPlayer())
         {
-            CancelInvoke();
+            StopCoroutine(Shoot());
             isFiring = false;
         }
 	}
 
     void Fire()
     {
-        isFiring = true;
         GameObject obj = Instantiate(projectile, projectileSpawn.transform.position, projectile.transform.rotation) as GameObject;
         obj.transform.parent = projectileSpawn.transform;
+    }
 
+    // Coroutine
+    // wait for seconds to start (gun loading delay)
+    // shoot and wait for seconds after every shot. Waitforseconds(fireRate)
+    // 16 shots
+    // wait for seconds reload
+    IEnumerator Shoot()
+    {
+        yield return new WaitForSeconds(delay);
+        while(true)
+        {
+            for(uint i = 0; i < fireLimit; ++i)
+            {
+                Fire();
+                yield return new WaitForSeconds(fireRate);
+            }
+
+            yield return new WaitForSeconds(reloadTime);
+        }
+        
     }
 }
