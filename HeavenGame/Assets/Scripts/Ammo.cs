@@ -16,4 +16,14 @@ public class Ammo : MonoBehaviour {
 	void Update () {
         isOutOfAmmo = (amount <= 0) ? true : false;
 	}
+
+    public void AddAmmo(uint a)
+    {
+        amount += a;
+    }
+
+    public void DecreaseAmmo(uint a)
+    {
+        amount -= a;
+    }
 }

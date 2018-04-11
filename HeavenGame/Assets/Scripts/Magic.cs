@@ -30,4 +30,14 @@ public class Magic : MonoBehaviour {
             yield return new WaitForSeconds(1f);
         }
     }
+
+    public void AddMagic(uint m)
+    {
+        amount += m;
+    }
+
+    public void DecreaseMagic(uint m)
+    {
+        amount -= m;
+    }
 }
