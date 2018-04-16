@@ -11,6 +11,7 @@ public class RobotShoot : MonoBehaviour {
     public uint fireLimit;
     private bool isFiring = false;
     private Enemy enemy;
+    private AudioSource[] audioSources;
 
     private void Awake()
     {
@@ -19,6 +20,7 @@ public class RobotShoot : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        audioSources = GetComponents<AudioSource>();
 	}
 
     // Update is called once per frame
@@ -27,10 +29,12 @@ public class RobotShoot : MonoBehaviour {
         {
             isFiring = true;
             StartCoroutine(Shoot());
+            audioSources[2].Play();
         } else if (!enemy.DetectedPlayer())
         {
             StopCoroutine(Shoot());
             isFiring = false;
+            audioSources[2].Stop();
         }
 	}
 
@@ -38,6 +42,7 @@ public class RobotShoot : MonoBehaviour {
     {
         GameObject obj = Instantiate(projectile, projectileSpawn.transform.position, projectile.transform.rotation) as GameObject;
         obj.transform.parent = projectileSpawn.transform;
+        audioSources[0].Play();
     }
 
     // Coroutine

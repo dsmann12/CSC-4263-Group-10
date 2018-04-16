@@ -150,7 +150,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4385612310847908, guid: a3cc936bf6a26f3469f765e0e0ddd5e6, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1923291262786906, guid: a3cc936bf6a26f3469f765e0e0ddd5e6, type: 2}
       propertyPath: m_Name
@@ -5536,7 +5536,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4385612310847908, guid: a3cc936bf6a26f3469f765e0e0ddd5e6, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1923291262786906, guid: a3cc936bf6a26f3469f765e0e0ddd5e6, type: 2}
       propertyPath: m_Name
@@ -5697,7 +5697,33 @@ Prefab:
       propertyPath: amount
       value: 10
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 212428865128533446, guid: b0ddb0796ac8835448c39e831e325aa1,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 82955854766838610, guid: b0ddb0796ac8835448c39e831e325aa1,
+        type: 2}
+      propertyPath: spreadCustomCurve.m_RotationOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82549285560874656, guid: b0ddb0796ac8835448c39e831e325aa1,
+        type: 2}
+      propertyPath: spreadCustomCurve.m_RotationOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82935058169899192, guid: b0ddb0796ac8835448c39e831e325aa1,
+        type: 2}
+      propertyPath: spreadCustomCurve.m_RotationOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82160195176975810, guid: b0ddb0796ac8835448c39e831e325aa1,
+        type: 2}
+      propertyPath: spreadCustomCurve.m_RotationOrder
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 212806791005625696, guid: b0ddb0796ac8835448c39e831e325aa1, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: b0ddb0796ac8835448c39e831e325aa1, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &1863133341
