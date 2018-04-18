@@ -4,4 +4,22 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/_Scenes/Heaven.unity
+    guid: 2ec20a718ae8116469b85a00c80ff211
+  - enabled: 1
+    path: Assets/_Scenes/Jackal_Proto.unity
+    guid: 7a67b47c356ec2e4fb9c0eeed16a99eb
+  - enabled: 1
+    path: Assets/_Scenes/Menu.unity
+    guid: a48fce71f1e93c244bf5a14e361fc729
+  - enabled: 1
+    path: Assets/_Scenes/Prototype.unity
+    guid: 8320d7986fd80c34f864c4768e8c01c5
+  - enabled: 1
+    path: Assets/_Scenes/Prototype_Davis.unity
+    guid: 10b97acb4be9d4f96b46c520f379d6d3
+  - enabled: 1
+    path: Assets/_Scenes/Robot_Proto.unity
+    guid: ef2b573432fbae244826893c9f6c5464
