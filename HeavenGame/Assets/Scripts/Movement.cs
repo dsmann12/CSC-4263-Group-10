@@ -23,7 +23,10 @@ public class Movement : MonoBehaviour {
     bool isDoubleJumping;
     public float jumpForce = 15f;
     AudioSource[] audioSources;
-    private int smokeDash;
+    int smokeDash;
+    SpriteRenderer[] sprites;
+    public float fallGravMult = 2f;
+    float gravity;
 
     // animator
     private Animator anim;
@@ -39,10 +42,30 @@ public class Movement : MonoBehaviour {
         RunVector = new Vector2(runSpeed, 0);
         audioSources = this.GetComponents<AudioSource>();
         smokeDash = audioSources.Length - 1;
+        sprites = GetComponentsInChildren<SpriteRenderer>();
+        gravity = playerRigidBody.gravityScale;
 
         // set animator
         anim = GetComponent<Animator>();
 	}
+
+
+    void HideSprite()
+    {
+        anim.enabled = false;
+        for (int i = 0; i < sprites.Length; i++)
+            sprites[i].enabled = false;
+    }
+
+
+    void ShowSprite()
+    {
+        anim.enabled = true;
+        for (int i = 0; i < sprites.Length; i++)
+            sprites[i].enabled = true;
+    }
+
+
     void UpdateDashDirection()
     {
         Aiming aim = GetComponentInChildren<Aiming>();
@@ -55,6 +78,8 @@ public class Movement : MonoBehaviour {
             dashDirection = Direction.Right;
         }
     }
+
+
     void Walking(int dir)
     {
         if (dir == 1)
@@ -122,6 +147,7 @@ public class Movement : MonoBehaviour {
     {
         if (!isDoubleJumping)
         {
+            playerRigidBody.gravityScale = gravity;
             playerRigidBody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             if (!isJumping)
             {
@@ -163,6 +189,8 @@ public class Movement : MonoBehaviour {
             currState = lastState;
             playerRigidBody.velocity = new Vector2(LastSpeed.x, 0);
             currDashTime = 0f;
+            Physics2D.IgnoreLayerCollision(10, 11, false);
+            ShowSprite();
         }
         currDashTime += Time.deltaTime;
         
@@ -180,7 +208,9 @@ public class Movement : MonoBehaviour {
             lastState = currState;
             LastSpeed = playerRigidBody.velocity;
             currState = MovementState.Dash;
+            HideSprite();
             audioSources[smokeDash].Play();
+            Physics2D.IgnoreLayerCollision(10, 11, true);
         }
         else if(currState!=MovementState.Dash)
         {
@@ -241,9 +271,13 @@ public class Movement : MonoBehaviour {
                 Running(1);
                 break;
         }
+        
+        if (playerRigidBody.velocity.y < -1)
+            playerRigidBody.gravityScale = gravity * fallGravMult;
+        else
+            playerRigidBody.gravityScale = gravity;
 
         float speedX = Mathf.Abs(playerRigidBody.velocity.x);
-
 
         anim.SetFloat("SpeedX", speedX);
         anim.SetBool("IsJumping", isJumping);

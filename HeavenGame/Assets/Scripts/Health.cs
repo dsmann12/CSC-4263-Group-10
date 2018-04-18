@@ -44,12 +44,13 @@ public class Health : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        HandleEnemyCollision(collision.collider);
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        HandleEnemyCollision(collision);
+        GameObject obj = collision.gameObject;
+        if (obj.tag == "Enemy" && !takingDamage)
+        {
+            Enemy enemy = obj.GetComponent<Enemy>();
+            amount -= enemy.damage;
+            takingDamage = true;
+        }
     }
 
     private void HandleEnemyCollision(Collider2D collision)
