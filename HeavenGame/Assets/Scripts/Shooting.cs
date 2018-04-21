@@ -70,6 +70,9 @@ public class Shooting : MonoBehaviour {
         bullet.GetComponent<Rigidbody2D>().gravityScale = 0;
         bullet.AddComponent<BulletMovement>();
 
+        // test bullet as trigger
+        bullet.GetComponent<BoxCollider2D>().isTrigger = true;
+
         // add projectile component
         bullet.AddComponent<Projectile>();
 
