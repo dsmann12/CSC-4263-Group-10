@@ -25,16 +25,31 @@ public class RobotShoot : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        if (enemy.DetectedPlayer() && !isFiring)
+        // positionDiff is positive or negative
+        // if detectedPlayer face direction of player
+        // if position > 0 && !facingRight, flip
+        // else if position < 0 && facingRight, flip
+
+        if (enemy.DetectedPlayer())
         {
-            isFiring = true;
-            StartCoroutine(Shoot());
-            audioSources[2].Play();
-        } else if (!enemy.DetectedPlayer())
-        {
-            StopCoroutine(Shoot());
-            isFiring = false;
-            audioSources[2].Stop();
+            float positionDiff = enemy.CalculateDistanceToPlayer();
+            if((positionDiff > 0 && !enemy.facingRight) || (positionDiff < 0 && enemy.facingRight))
+            {
+                enemy.FlipSprite();
+            }
+
+            if (!isFiring)
+            {
+                isFiring = true;
+                StartCoroutine(Shoot());
+                audioSources[2].Play();
+            }
+            else if (!enemy.DetectedPlayer())
+            {
+                StopCoroutine(Shoot());
+                isFiring = false;
+                audioSources[2].Stop();
+            }
         }
 	}
 

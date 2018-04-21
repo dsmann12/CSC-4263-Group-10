@@ -50,11 +50,33 @@ public class JackalJump : MonoBehaviour
         // update time since last on ceiling
         lastOnCeiling += Time.deltaTime;
 
+        // flip sprite if necessary
+        // based on velocity
+        // should i base it on player?
+        float speedX = rb.velocity.x;
+        Debug.Log("Speed x is " + speedX.ToString());
+        if ((speedX < 0.0f) && enemy.facingRight)
+        {
+            enemy.FlipSprite();
+        }
+        else if ((speedX > 0.0f) && !enemy.facingRight)
+        {
+            enemy.FlipSprite();
+        }
+
+        anim.SetFloat("SpeedX", Mathf.Abs(speedX));
+
         anim.SetBool("IsJumping", isJumping);
     }
 
     void FixedUpdate()
     {
+        // Move
+        if (enemy.DetectedPlayer())
+        {
+            enemy.Move();
+        }
+
         // raycast to detect ceiling
         RaycastHit2D ceilingHit = Physics2D.Raycast(transform.position, Vector2.up);
         //Debug.Log("Raycast distance = " + ceilingHit.distance);

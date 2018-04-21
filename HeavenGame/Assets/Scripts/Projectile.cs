@@ -18,4 +18,13 @@ public class Projectile : MonoBehaviour {
             Destroy(gameObject);
         }
     }
+
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    Debug.Log("Fuck colliding in projectile");
+    //    if (collision.gameObject.tag != "Enemy" && collision.gameObject.tag != "Player")
+    //    {
+    //        Destroy(gameObject);
+    //    }
+    //}
 }

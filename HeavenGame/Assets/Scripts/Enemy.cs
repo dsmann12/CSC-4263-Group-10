@@ -40,57 +40,31 @@ public class Enemy : MonoBehaviour
 
 
         // calculate distance to player and check if player is detected
-        positionDiff = CalculateDistanceToPlayer();
-        RaycastHit2D ceilingHit = Physics2D.Raycast(transform.position, Vector2.up, Mathf.Infinity, mask.value);
-        RaycastHit2D floorHit = Physics2D.Raycast(transform.position, Vector2.down, Mathf.Infinity, mask.value);
-        if ( (Mathf.Abs(positionDiff) <= detectionDistance) && (ceilingHit.point.y > player.transform.position.y) && (floorHit.point.y < player.transform.position.y))
-        {
-            Debug.Log("Detected player");
-            detectedPlayer = true;
-			
-			
-            // for when adding animation states
-            //Animator anim = GetComponent<Animator>();
-            //if (anim != null)
-            //{
-            //    //anim.SetBool("detectedPlayer", detectedPlayer);
-            //    anim.enabled = false;
-            //}
-        }
+        DetectPlayer();
 
         // flip sprite if necessary
         // based on velocity
         // should i base it on player?
-        float speedX = rb.velocity.x;
+        //float speedX = rb.velocity.x;
         //Debug.Log("Speed x is " + speedX.ToString());
-        if ((speedX < 0.0f) && facingRight)
-        {
-            FlipSprite();
-        }
-        else if ((speedX > 0.0f) && !facingRight)
-        {
-            FlipSprite();
-        }
+        //if ((speedX < 0.0f) && facingRight)
+        //{
+        //    FlipSprite();
+        //}
+        //else if ((speedX > 0.0f) && !facingRight)
+        //{
+        //    FlipSprite();
+        //}
 
-        anim.SetFloat("SpeedX", Mathf.Abs(speedX));
+        //anim.SetFloat("SpeedX", Mathf.Abs(speedX));
     }
 
     void FixedUpdate()
     {
-        if (detectedPlayer)
-        {
-            Vector2 direction = (positionDiff > 0) ? Vector2.right : Vector2.left;
-
-            // move enemy using forces
-            // keeps gravity applied
-            // easy to implement inertia
-            rb.AddForce(direction * speed);
-            // cap velocity at speed
-            if (rb.velocity.magnitude > speed)
-            {
-                rb.velocity = rb.velocity.normalized * speed;
-            }
-        }
+        //if (detectedplayer)
+        //{
+        //    move();
+        //}
     }
 
     // calculate difference between player position and enemy position
@@ -107,13 +81,56 @@ public class Enemy : MonoBehaviour
     }
 
     // flip sprite by negating scale.x
-    private void FlipSprite()
+    public void FlipSprite()
     {
         Debug.Log("Flip sprite");
         facingRight = !facingRight;
         Vector2 localScale = transform.localScale;
         localScale.x *= -1;
         transform.localScale = localScale;
+    }
+
+    public void DetectPlayer()
+    {
+        // calculate distance to player and check if player is detected
+        positionDiff = CalculateDistanceToPlayer();
+        RaycastHit2D ceilingHit = Physics2D.Raycast(transform.position, Vector2.up, Mathf.Infinity, mask.value);
+        RaycastHit2D floorHit = Physics2D.Raycast(transform.position, Vector2.down, Mathf.Infinity, mask.value);
+        if ((Mathf.Abs(positionDiff) <= detectionDistance) && (ceilingHit.point.y > player.transform.position.y) && (floorHit.point.y < player.transform.position.y))
+        {
+            Debug.Log("Detected player");
+            detectedPlayer = true;
+
+
+            // for when adding animation states
+            //Animator anim = GetComponent<Animator>();
+            //if (anim != null)
+            //{
+            //    //anim.SetBool("detectedPlayer", detectedPlayer);
+            //    anim.enabled = false;
+            //}
+        } else
+        {
+            detectedPlayer = false;
+        }
+    }
+
+    public void Move()
+    {
+        Vector2 direction = (positionDiff > 0) ? Vector2.right : Vector2.left;
+
+        // move enemy using forces
+        // keeps gravity applied
+        // easy to implement inertia
+        Debug.Log("Adding force in direction " + direction + " by speed " + speed);
+        rb.AddForce(direction * speed);
+        Debug.Log("Force velocity is: " + direction * speed);
+        Debug.Log("New velocitys is: " + rb.velocity.x);
+        // cap velocity at speed
+        if (Mathf.Abs(rb.velocity.x) > speed)
+        {
+            rb.velocity = rb.velocity.normalized * speed;
+        }
     }
 
     // handle collision enter
@@ -130,6 +147,24 @@ public class Enemy : MonoBehaviour
             // magic number
             rb.mass *= 150;
         } else if (obj.tag == "PlayerBullet")
+        {
+            // get projectile component
+            Projectile proj = obj.GetComponent<Projectile>();
+
+            // error check
+            if (proj)
+            {
+                health -= proj.GetDamage();
+            }
+
+            Destroy(obj);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        GameObject obj = collision.gameObject;
+        if (obj.tag == "PlayerBullet")
         {
             // get projectile component
             Projectile proj = obj.GetComponent<Projectile>();

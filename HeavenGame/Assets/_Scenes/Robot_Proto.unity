@@ -5722,6 +5722,14 @@ Prefab:
       propertyPath: spreadCustomCurve.m_RotationOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1042144693308260, guid: b0ddb0796ac8835448c39e831e325aa1, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 1042144693308260, guid: b0ddb0796ac8835448c39e831e325aa1, type: 2}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 212806791005625696, guid: b0ddb0796ac8835448c39e831e325aa1, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: b0ddb0796ac8835448c39e831e325aa1, type: 2}
@@ -5864,6 +5872,11 @@ Prefab:
     - target: {fileID: 4385612310847908, guid: a3cc936bf6a26f3469f765e0e0ddd5e6, type: 2}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114786074837672184, guid: a3cc936bf6a26f3469f765e0e0ddd5e6,
+        type: 2}
+      propertyPath: speed
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a3cc936bf6a26f3469f765e0e0ddd5e6, type: 2}
