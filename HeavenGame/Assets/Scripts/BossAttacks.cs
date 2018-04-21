@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BossAttacks : MonoBehaviour
 {
+    AudioSource[] sources;
 
     public float beamCooldown = 15;
     float beamCooldownCounter;
@@ -17,9 +18,15 @@ public class BossAttacks : MonoBehaviour
         beamCooldownCounter = 0;
         bombCooldownCounter = 0;
         wallCooldownCounter = 0;
+        sources = GetComponents<AudioSource>();
     }
     void spawnBeam()
     {
+        GameObject beam = Instantiate(Resources.Load("BossBeam")) as GameObject;
+
+        beam.transform.position = this.transform.position;
+        sources[1].Play();
+        /*
         GameObject beam = new GameObject();
         beam.AddComponent<SpriteRenderer>();
         beam.transform.localScale = new Vector3(.1f, .1f);
@@ -30,10 +37,16 @@ public class BossAttacks : MonoBehaviour
         beam.GetComponent<BoxCollider2D>().isTrigger = true;
         beam.transform.position = this.transform.position;
         beam.AddComponent<BossBeam>();
+        */
 
     }
     void spawnBomb()
     {
+
+        GameObject bomb = Instantiate(Resources.Load("BossOrb")) as GameObject;
+
+        bomb.transform.position = this.transform.position;
+        /*
         GameObject bomb = new GameObject();
         bomb.transform.localScale = new Vector3(.1f, .1f);
         bomb.AddComponent<SpriteRenderer>();
@@ -43,9 +56,15 @@ public class BossAttacks : MonoBehaviour
         bomb.AddComponent<CircleCollider2D>();
         bomb.transform.position = this.transform.position;
         bomb.AddComponent<BossBomb>();
+        bomb.layer = 11;
+        */
     }
     void spawnWall()
     {
+        GameObject wall = Instantiate(Resources.Load("BossWall")) as GameObject;
+
+        wall.transform.position = this.transform.position;
+        /*
         GameObject wall = new GameObject();
         wall.transform.localScale = new Vector3(.1f, .1f);
         wall.AddComponent<SpriteRenderer>();
@@ -56,6 +75,10 @@ public class BossAttacks : MonoBehaviour
         collider.isTrigger = true;
         wall.transform.position = this.transform.position;
         wall.AddComponent<BossWall>();
+        AudioSource audio = wall.AddComponent<AudioSource>();
+        audio.clip = Resources.Load("WallSmoke") as AudioClip;
+        audio.Play();
+        */
     }
     void updateCoooldownCounters()
     {

@@ -7,11 +7,20 @@ public class Magic : MonoBehaviour {
     public uint limit = 100;
     public bool isOutOfMagic = false;
     public uint rechargeRate = 1;
+    public float rechargeTime = .1f;
+    GameObject saveData;
+    SaveLoad saveLoad;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         StartCoroutine(Recharge());
-	}
+        saveData = GameObject.Find("SaveData");
+        if (saveData != null)
+        {
+            saveLoad = saveData.GetComponent<SaveLoad>();
+            amount = saveLoad.magic;
+        }
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -27,8 +36,13 @@ public class Magic : MonoBehaviour {
                 amount += rechargeRate;
             }
 
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(rechargeTime);
         }
+    }
+
+    public void SaveMagic()
+    {
+        saveLoad.magic = amount;
     }
 
     public void AddMagic(uint m)

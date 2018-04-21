@@ -6,10 +6,18 @@ public class Health : MonoBehaviour {
     public float amount = 2;
     public bool takingDamage = false;
     private Animator anim;
+    GameObject saveData;
+    SaveLoad saveLoad;
 
     private void Awake()
     {
         anim = GetComponent<Animator>();
+        saveData = GameObject.Find("SaveData");
+        if (saveData != null)
+        {
+            saveLoad = saveData.GetComponent<SaveLoad>();
+            amount = saveLoad.health;
+        }
     }
 
     // Use this for initialization
@@ -25,6 +33,11 @@ public class Health : MonoBehaviour {
         {
             Destroy(gameObject);
         }
+    }
+
+    public void SaveHealth()
+    {
+        saveLoad.health = amount;
     }
 
     public void AddHealth(float h)
