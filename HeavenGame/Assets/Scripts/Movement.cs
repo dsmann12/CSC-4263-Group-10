@@ -27,6 +27,7 @@ public class Movement : MonoBehaviour {
     SpriteRenderer[] sprites;
     public float fallGravMult = 2f;
     float gravity;
+    Magic magic;
 
     // animator
     private Animator anim;
@@ -44,6 +45,7 @@ public class Movement : MonoBehaviour {
         smokeDash = audioSources.Length - 1;
         sprites = GetComponentsInChildren<SpriteRenderer>();
         gravity = playerRigidBody.gravityScale;
+        magic = GetComponent<Magic>();
 
         // set animator
         anim = GetComponent<Animator>();
@@ -148,7 +150,16 @@ public class Movement : MonoBehaviour {
         if (!isDoubleJumping)
         {
             playerRigidBody.gravityScale = gravity;
-            playerRigidBody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            if (magic.amount < 10)
+            {
+                playerRigidBody.AddForce(Vector2.up * jumpForce / 2, ForceMode2D.Impulse);
+                magic.amount = 0;
+            }
+            else
+            {
+                playerRigidBody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+                magic.amount -= 10;
+            }
             if (!isJumping)
             {
                 isJumping = true;
@@ -203,7 +214,7 @@ public class Movement : MonoBehaviour {
             isJumping = false;
             isDoubleJumping = false;
         }
-        if (Input.GetKeyDown(KeyCode.LeftControl) && currState!=MovementState.Dash)
+        if (Input.GetKeyDown(KeyCode.LeftControl) && currState!=MovementState.Dash && magic.amount >= 30)
         {
             lastState = currState;
             LastSpeed = playerRigidBody.velocity;
@@ -211,6 +222,7 @@ public class Movement : MonoBehaviour {
             HideSprite();
             audioSources[smokeDash].Play();
             Physics2D.IgnoreLayerCollision(10, 11, true);
+            magic.amount -= 30;
         }
         else if(currState!=MovementState.Dash)
         {
