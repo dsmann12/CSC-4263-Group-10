@@ -10,11 +10,19 @@ public class SaveLoad : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        DontDestroyOnLoad(this);
+        GameObject[] data = GameObject.FindGameObjectsWithTag("SaveData");
+        if (data.Length > 1)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            DontDestroyOnLoad(this);
 
-        GameObject wanderer = GameObject.Find("Wanderer");
-        health = wanderer.GetComponent<Health>().amount;
-        ammo = wanderer.GetComponent<Ammo>().amount;
-        magic = wanderer.GetComponent<Magic>().amount;
+            GameObject wanderer = GameObject.Find("Wanderer");
+            health = wanderer.GetComponent<Health>().amount;
+            ammo = wanderer.GetComponent<Ammo>().amount;
+            magic = wanderer.GetComponent<Magic>().amount;
+        }
     }
 }
