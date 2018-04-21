@@ -35,3 +35,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/Scene_Shotgun.unity
     guid: 1f7ae0db44be2654c85a23fd08fd5166
+  - enabled: 1
+    path: Assets/_Scenes/Scene_05.unity
+    guid: ae93cb3e81ec0c3498f2998609f072e3
