@@ -9,11 +9,13 @@ public class JackalJump : MonoBehaviour
     public float minJumpRange = 10;
     public float maxCeilingHeight = 18f;
     public float distanceToTopOfObject = 1.7f; //distance from raycast to top of object
+    public float groundedDistance = 1.8f;
 
     private Rigidbody2D rb;
     private GameObject player;
     private Enemy enemy;
     private bool isJumping = false;
+    private bool isFalling = false;
     private bool isOnCeiling = false;
     private float lastOnCeiling = 1f; // time since last on ceiling
     private float ceilingJumpWait = 3f; // least amount of time in seconds to wait before jackal will decide to jump to ceiling
@@ -41,11 +43,14 @@ public class JackalJump : MonoBehaviour
     void Update()
     {
 
+        //Debug.Log("Y velocity is: " + rb.velocity.y);
         // check if jackal is jumping
-        if (rb.velocity.y == 0)
+        if (rb.velocity.y == 0.0f)
         {
             isJumping = false;
         }
+
+        isFalling = (rb.velocity.y < -1);
 
         // update time since last on ceiling
         lastOnCeiling += Time.deltaTime;
@@ -54,7 +59,7 @@ public class JackalJump : MonoBehaviour
         // based on velocity
         // should i base it on player?
         float speedX = rb.velocity.x;
-        Debug.Log("Speed x is " + speedX.ToString());
+        //Debug.Log("Speed x is " + speedX.ToString());
         if ((speedX < 0.0f) && enemy.facingRight)
         {
             enemy.FlipSprite();
@@ -72,14 +77,15 @@ public class JackalJump : MonoBehaviour
     void FixedUpdate()
     {
         // Move
-        if (enemy.DetectedPlayer())
+        if (enemy.DetectedPlayer() && !isFalling)
         {
             enemy.Move();
         }
 
         // raycast to detect ceiling
         RaycastHit2D ceilingHit = Physics2D.Raycast(transform.position, Vector2.up);
-        //Debug.Log("Raycast distance = " + ceilingHit.distance);
+        RaycastHit2D grounded = Physics2D.Raycast(transform.position, Vector2.down, Mathf.Infinity, LayerMask.GetMask("Player"));
+        //Debug.Log("Raycast distance = " + grounded.distance);
 
         // if not jumping, not on ceiling, if raycast hit distance is <= maxCeilingHeight, and raycast hit a wall, then handle ceiling actions
         if (!isJumping && !isOnCeiling && (ceilingHit.distance <= maxCeilingHeight) && (ceilingHit.collider.tag == "Wall"))
@@ -106,18 +112,32 @@ public class JackalJump : MonoBehaviour
         if (enemy.DetectedPlayer() && (playerDist <= maxJumpRange && playerDist >= minJumpRange) && !isJumping 
             && ((player.transform.position.y >= transform.position.y && !isOnCeiling) || (player.transform.position.y <= transform.position.y && isOnCeiling)))
         {
-            // if jackal is on ceiling, jump down, else jump up
-            Vector2 direction = (isOnCeiling) ? Vector2.down : Vector2.up;
-            rb.AddForce(direction * jumpForce);
-            isJumping = true;
-            rb.gravityScale = 1; // set gravity to one in case jackal was on ceiling
-            gameObject.layer = LayerMask.NameToLayer("Enemy");
-            if (isOnCeiling)
-            {
-                FlipSpriteVertically();
-                isOnCeiling = false;
-                lastOnCeiling = 0f;
-            }
+            Jump();
+        } else if (grounded.distance > 0 && grounded.distance <= groundedDistance && !isJumping)
+        {
+            JumpUp();
+        }
+    }
+
+    private void JumpUp()
+    {
+        isOnCeiling = false;
+        Jump();
+    }
+
+    private void Jump()
+    {
+        // if jackal is on ceiling, jump down, else jump up
+        Vector2 direction = (isOnCeiling) ? Vector2.down : Vector2.up;
+        rb.AddForce(direction * jumpForce);
+        isJumping = true;
+        rb.gravityScale = 1; // set gravity to one in case jackal was on ceiling
+        gameObject.layer = LayerMask.NameToLayer("Enemy");
+        if (isOnCeiling)
+        {
+            FlipSpriteVertically();
+            isOnCeiling = false;
+            lastOnCeiling = 0f;
         }
     }
 

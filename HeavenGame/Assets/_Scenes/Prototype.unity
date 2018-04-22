@@ -1218,6 +1218,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114952308685990110, guid: 3697f2e72933e5d4aaf8f1745143acb6,
+        type: 2}
+      propertyPath: jumpForce
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3697f2e72933e5d4aaf8f1745143acb6, type: 2}
   m_IsPrefabParent: 0

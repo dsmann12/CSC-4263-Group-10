@@ -72,8 +72,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1334158557703270}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 48.2, y: 2.8, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 6.490239, y: 27, z: 0}
+  m_LocalScale: {x: -1, y: 1, z: 0}
   m_Children:
   - {fileID: 4067086068338334}
   m_Father: {fileID: 0}
@@ -793,7 +793,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 1.0663013
   MaxDistance: 50
   Pan2D: 0
   rolloffMode: 0
@@ -1043,13 +1043,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
-  detectionDistance: 25
-  health: 1
+  detectionDistance: 30
+  health: 2
   damage: 1
   mask:
     serializedVersion: 2
     m_Bits: 8448
-  facingRight: 0
+  facingRight: 1
 --- !u!114 &114756381207941332
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1063,7 +1063,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unalertedGrowlRate: 7
   alertedGrowlRate: 3
-  hidden: 0
+  hidden: 1
 --- !u!114 &114952308685990110
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1080,6 +1080,7 @@ MonoBehaviour:
   minJumpRange: 7
   maxCeilingHeight: 18
   distanceToTopOfObject: 1.7
+  groundedDistance: 1.8
 --- !u!212 &212749430812802972
 SpriteRenderer:
   m_ObjectHideFlags: 1

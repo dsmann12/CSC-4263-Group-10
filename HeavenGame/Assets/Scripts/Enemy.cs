@@ -83,7 +83,7 @@ public class Enemy : MonoBehaviour
     // flip sprite by negating scale.x
     public void FlipSprite()
     {
-        Debug.Log("Flip sprite");
+        //Debug.Log("Flip sprite");
         facingRight = !facingRight;
         Vector2 localScale = transform.localScale;
         localScale.x *= -1;
@@ -98,7 +98,7 @@ public class Enemy : MonoBehaviour
         RaycastHit2D floorHit = Physics2D.Raycast(transform.position, Vector2.down, Mathf.Infinity, mask.value);
         if ((Mathf.Abs(positionDiff) <= detectionDistance) && (ceilingHit.point.y > player.transform.position.y) && (floorHit.point.y < player.transform.position.y))
         {
-            Debug.Log("Detected player");
+            //Debug.Log("Detected player");
             detectedPlayer = true;
 
 
@@ -122,10 +122,10 @@ public class Enemy : MonoBehaviour
         // move enemy using forces
         // keeps gravity applied
         // easy to implement inertia
-        Debug.Log("Adding force in direction " + direction + " by speed " + speed);
+        //Debug.Log("Adding force in direction " + direction + " by speed " + speed);
         rb.AddForce(direction * speed);
-        Debug.Log("Force velocity is: " + direction * speed);
-        Debug.Log("New velocitys is: " + rb.velocity.x);
+        //Debug.Log("Force velocity is: " + direction * speed);
+        //Debug.Log("New velocitys is: " + rb.velocity.x);
         // cap velocity at speed
         if (Mathf.Abs(rb.velocity.x) > speed)
         {
@@ -143,9 +143,14 @@ public class Enemy : MonoBehaviour
             Debug.Log("Collided with player");
             rb.velocity = Vector2.zero;
 
+            Rigidbody2D playerrb = obj.GetComponent<Rigidbody2D>();
+            Vector2 dir = (positionDiff > 0) ? Vector2.right : Vector2.left;
+            playerrb.AddForce(dir * 500.0f);
+
+
             // prevent player from pushing enemy
             // magic number
-            rb.mass *= 150;
+            //rb.mass *= 150;
         } else if (obj.tag == "PlayerBullet")
         {
             // get projectile component
@@ -184,7 +189,7 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            rb.mass = 1;
+            //rb.mass = 1;
         }
     }
 }

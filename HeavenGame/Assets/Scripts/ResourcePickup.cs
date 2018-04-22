@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ResourcePickup : MonoBehaviour {
-    public enum ResourceType { HEALTH, AMMO, MAGIC }
+    public enum ResourceType { HEALTH, AMMO, MAGIC, STORY }
     public uint value = 10;
     public ResourceType type;
+    public GameObject panel;
 
 	// Use this for initialization
 	void Start () {
@@ -36,6 +37,9 @@ public class ResourcePickup : MonoBehaviour {
                 case ResourceType.MAGIC:
                     Magic magic = player.GetComponent<Magic>();
                     magic.AddMagic(value);
+                    break;
+                case ResourceType.STORY:
+                    panel.SetActive(true);
                     break;
                 default:
                     break;
