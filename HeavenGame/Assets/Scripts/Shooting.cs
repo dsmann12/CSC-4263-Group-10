@@ -11,6 +11,7 @@ public class Shooting : MonoBehaviour {
     AudioSource[] gunSounds;
     public enum Gun { Pistol, Shotgun}
     public Gun currGun;
+    public bool hasShotgun = false;
     public float ShotgunSpreadDegrees = 5;
 	// Use this for initialization
 	void Start () {
@@ -150,7 +151,7 @@ public class Shooting : MonoBehaviour {
 
     void swapGun()
     {
-        if (currGun == Gun.Pistol)
+        if (currGun == Gun.Pistol && hasShotgun)
         {
             currGun = Gun.Shotgun;
             this.gameObject.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Shotgun");
