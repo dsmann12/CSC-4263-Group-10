@@ -21,7 +21,7 @@ public class Ammo : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        isOutOfAmmo = (amount <= 0) ? true : false;
+        isOutOfAmmo = (amount <= 0 ) ? true : false;
 	}
 
     public void SaveAmmo()

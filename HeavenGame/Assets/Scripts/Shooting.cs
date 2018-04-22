@@ -154,7 +154,7 @@ public class Shooting : MonoBehaviour {
         {
             currGun = Gun.Shotgun;
             this.gameObject.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Shotgun");
-            this.transform.localPosition = new Vector3(-.33f, 1.43f);
+            this.transform.localPosition = new Vector3(-.44f, 1.6f);
         }
         else
         {

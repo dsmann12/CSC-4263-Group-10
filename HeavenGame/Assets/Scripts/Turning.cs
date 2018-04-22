@@ -8,11 +8,16 @@ public class Turning : MonoBehaviour {
 	}
     void turnLeft()
     {
-        this.transform.localScale = new Vector3(-1, 1, 1);
+        if(this.transform.localScale.x > 0) {
+            this.transform.localScale = new Vector3(-1 * this.transform.localScale.x, this.transform.localScale.y, 1);
+        }
     }
     void turnRight()
     {
-        this.transform.localScale = new Vector3(1, 1, 1);
+        if(this.transform.localScale.x < 0)
+        {
+            this.transform.localScale = new Vector3(-1 * this.transform.localScale.x, this.transform.localScale.y, 1);
+        }
     }
 	// Update is called once per frame
 	void Update () {
