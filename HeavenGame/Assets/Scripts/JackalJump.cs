@@ -19,7 +19,7 @@ public class JackalJump : MonoBehaviour
     private bool isOnCeiling = false;
     private float lastOnCeiling = 1f; // time since last on ceiling
     private float ceilingJumpWait = 3f; // least amount of time in seconds to wait before jackal will decide to jump to ceiling
-    private float ceilingJumpChance = 0.1f;
+    public float ceilingJumpChance = 0.1f;
     private float randomNumber = 1.0f;
 
     private Animator anim;
@@ -99,7 +99,7 @@ public class JackalJump : MonoBehaviour
                 gameObject.layer = LayerMask.NameToLayer("CeilingWalker");
             }
             // only jump to ceiling if Jackal detects player, lastOnCeiling 
-            else if (enemy.DetectedPlayer() && (lastOnCeiling >= ceilingJumpWait) && (randomNumber <= ceilingJumpChance)) 
+            else if (enemy.DetectedPlayer() && (lastOnCeiling >= ceilingJumpWait) && (randomNumber < ceilingJumpChance)) 
             {
                 JumpToCeiling();
             }
