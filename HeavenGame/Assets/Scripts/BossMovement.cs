@@ -7,8 +7,8 @@ public class BossMovement : MonoBehaviour
 
     Vector3 dashTarget;
     Rect movementArea;
-    float xMovementBounds = 15;
-    float yMovementBounds = 15;
+    public float xMovementRange = 15;
+    public float yMovementRange = 15;
     float movementAngle;
     bool isDashing;
     float dashCooldown = 1.5f;
@@ -25,8 +25,8 @@ public class BossMovement : MonoBehaviour
         dashCooldownTimer = 0;
         wobbleAngleChangeTimer = 0;
         wobbleAngle = chooseRandomDirection() * Mathf.Deg2Rad;
-        Vector2 movementAreaPos = new Vector2(this.transform.position.x - (xMovementBounds / 2), this.transform.position.y - (yMovementBounds / 2));
-        Vector2 movementAreaDimensions = new Vector2(xMovementBounds, yMovementBounds);
+        Vector2 movementAreaPos = new Vector2(this.transform.position.x - (xMovementRange / 2), this.transform.position.y - (yMovementRange / 2));
+        Vector2 movementAreaDimensions = new Vector2(xMovementRange, yMovementRange);
         movementArea = new Rect(movementAreaPos, movementAreaDimensions);
     }
 

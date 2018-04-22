@@ -9,7 +9,9 @@ public class Shooting : MonoBehaviour {
     bool onCooldown = false;
     Ammo ammo;
     AudioSource[] gunSounds;
-
+    public enum Gun { Pistol, Shotgun}
+    public Gun currGun;
+    public float ShotgunSpreadDegrees = 5;
 	// Use this for initialization
 	void Start () {
         GameObject[] objs = FindObjectsOfType<GameObject>();
@@ -25,50 +27,107 @@ public class Shooting : MonoBehaviour {
         // Get Ammo
         ammo = player.GetComponent<Ammo>();
         Physics2D.IgnoreLayerCollision(9, 10);
+        Physics2D.IgnoreLayerCollision(9, 9);
 
         //Get Audio Sources
         gunSounds = GetComponents<AudioSource>();
+        currGun = Gun.Pistol;
 	}
 	void Shoot()
     {
         float angle = this.transform.eulerAngles.z;
         float width = GetComponent<SpriteRenderer>().bounds.size.x;
         float height = GetComponent<SpriteRenderer>().bounds.size.y;
+        float shotgunAdjustment = GetComponent<SpriteRenderer>().bounds.size.y / 2;
         float cos = Mathf.Cos(Mathf.Deg2Rad*angle);
         float sin = Mathf.Sin(Mathf.Deg2Rad*angle);
+        float adjustmentCos = Mathf.Cos(Mathf.Deg2Rad * (angle - 90));
+        float adjustmentSin = Mathf.Sin(Mathf.Deg2Rad * (angle - 90));
         float startPosX;
         float startPosY;
         if(player.transform.localScale.x == -1)
         {
-            startPosX = this.transform.position.x - cos * width;
-            startPosY = this.transform.position.y - sin * height;
+            if(currGun == Gun.Shotgun)
+            {
+                startPosX = this.transform.position.x - cos * width + adjustmentCos*shotgunAdjustment;
+                startPosY = this.transform.position.y - sin * height + adjustmentSin*shotgunAdjustment;
+            }
+            else
+            {
+                startPosX = this.transform.position.x - cos * width;
+                startPosY = this.transform.position.y - sin * height;
+            }
         }
         else
         {
-            startPosX = this.transform.position.x + cos * width;
-            startPosY = this.transform.position.y + sin * height;
+            if(currGun == Gun.Shotgun)
+            {
+                startPosX = this.transform.position.x + cos * width + adjustmentCos*shotgunAdjustment;
+                startPosY = this.transform.position.y + sin * height + adjustmentSin*shotgunAdjustment;
+            }
+            else
+            {
+                startPosX = this.transform.position.x + cos * width;
+                startPosY = this.transform.position.y + sin * height;
+            }
         }
-        
-        GameObject bullet = new GameObject();
-        bullet.layer = 9;
-        bullet.AddComponent<SpriteRenderer>();
-        SpriteRenderer bulletSprite = bullet.GetComponent<SpriteRenderer>();
-        bulletSprite.sprite = Resources.Load<Sprite>("Bullet");
-        bulletSprite.sortingOrder = 5;
-        bullet.transform.position = new Vector3(startPosX, startPosY, 1);
-        if(player.transform.localScale.x == -1)
+        if(currGun == Gun.Shotgun)
         {
-            bullet.transform.eulerAngles = new Vector3(1, 1, angle + 180);
+            for (int angleIncrement = -2; angleIncrement < 4; angleIncrement++)
+            {
+                GameObject bullet = new GameObject();
+                bullet.layer = 9;
+                bullet.AddComponent<SpriteRenderer>();
+                SpriteRenderer bulletSprite = bullet.GetComponent<SpriteRenderer>();
+                bulletSprite.sprite = Resources.Load<Sprite>("Bullet");
+                bulletSprite.sortingOrder = 5;
+                bullet.transform.position = new Vector3(startPosX, startPosY, 1);
+                if (player.transform.localScale.x == -1)
+                {
+                    bullet.transform.eulerAngles = new Vector3(1, 1, angle + 180 + (angleIncrement) * ShotgunSpreadDegrees);
+                }
+                else
+                {
+                    bullet.transform.eulerAngles = new Vector3(1, 1, angle + (angleIncrement * ShotgunSpreadDegrees));
+                }
+                bullet.AddComponent<BoxCollider2D>();
+                bullet.AddComponent<Rigidbody2D>();
+                bullet.GetComponent<Rigidbody2D>().drag = 0f;
+                bullet.GetComponent<Rigidbody2D>().gravityScale = 0;
+                bullet.AddComponent<BulletMovement>();
+
+                // add projectile component
+                bullet.AddComponent<Projectile>();
+
+                // add tag to bullet
+                bullet.tag = "PlayerBullet";
+
+                // decrement ammo
+                ammo.amount -= 1;
+            }
         }
         else
         {
-            bullet.transform.eulerAngles = new Vector3(1, 1, angle);
-        }
-        bullet.AddComponent<BoxCollider2D>();
-        bullet.AddComponent<Rigidbody2D>();
-        bullet.GetComponent<Rigidbody2D>().drag = 0f;
-        bullet.GetComponent<Rigidbody2D>().gravityScale = 0;
-        bullet.AddComponent<BulletMovement>();
+            GameObject bullet = new GameObject();
+            bullet.layer = 9;
+            bullet.AddComponent<SpriteRenderer>();
+            SpriteRenderer bulletSprite = bullet.GetComponent<SpriteRenderer>();
+            bulletSprite.sprite = Resources.Load<Sprite>("Bullet");
+            bulletSprite.sortingOrder = 5;
+            bullet.transform.position = new Vector3(startPosX, startPosY, 1);
+            if (player.transform.localScale.x == -1)
+            {
+                bullet.transform.eulerAngles = new Vector3(1, 1, angle + 180);
+            }
+            else
+            {
+                bullet.transform.eulerAngles = new Vector3(1, 1, angle);
+            }
+            bullet.AddComponent<BoxCollider2D>();
+            bullet.AddComponent<Rigidbody2D>();
+            bullet.GetComponent<Rigidbody2D>().drag = 0f;
+            bullet.GetComponent<Rigidbody2D>().gravityScale = 0;
+            bullet.AddComponent<BulletMovement>();
 
         // test bullet as trigger
         bullet.GetComponent<BoxCollider2D>().isTrigger = true;
@@ -76,18 +135,40 @@ public class Shooting : MonoBehaviour {
         // add projectile component
         bullet.AddComponent<Projectile>();
 
-        // add tag to bullet
-        bullet.tag = "PlayerBullet";
+            // add tag to bullet
+            bullet.tag = "PlayerBullet";
 
-        // decrement ammo
-        ammo.amount -= 1;
+            // decrement ammo
+            ammo.amount -= 1;
+        }
+
 
         // Play sound
         int rand = Random.Range(0, gunSounds.Length);
         gunSounds[rand].Play();
     }
+
+    void swapGun()
+    {
+        if (currGun == Gun.Pistol)
+        {
+            currGun = Gun.Shotgun;
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Shotgun");
+            this.transform.localPosition = new Vector3(-.33f, 1.43f);
+        }
+        else
+        {
+            currGun = Gun.Pistol;
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Pistol");
+            this.transform.localPosition = new Vector3(0, 1.43f);
+        }
+    }
 	// Update is called once per frame
 	void Update () {
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            swapGun();
+        }
         if ((Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.E)) && !onCooldown && !ammo.isOutOfAmmo)
         {
             Shoot();
