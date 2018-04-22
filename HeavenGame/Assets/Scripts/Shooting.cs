@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Shooting : MonoBehaviour {
     GameObject player;
-    public float bulletCooldown = .5f;
+    public float bulletCooldownPistol = .5f;
+    public float bulletCooldownShotgun = 2.4f;
+    float bulletCooldown;
     float cooldownTicker = 0f;
     bool onCooldown = false;
     Ammo ammo;
@@ -13,8 +15,11 @@ public class Shooting : MonoBehaviour {
     public Gun currGun;
     public bool hasShotgun = false;
     public float ShotgunSpreadDegrees = 5;
-	// Use this for initialization
-	void Start () {
+    SaveLoad saveLoad;
+
+
+    // Use this for initialization
+    void Start () {
         GameObject[] objs = FindObjectsOfType<GameObject>();
         foreach(GameObject obj in objs)
         {
@@ -33,7 +38,27 @@ public class Shooting : MonoBehaviour {
         //Get Audio Sources
         gunSounds = GetComponents<AudioSource>();
         currGun = Gun.Pistol;
-	}
+        bulletCooldown = bulletCooldownPistol;
+
+        GameObject saveData;
+        saveData = GameObject.Find("SaveData");
+        if (saveData != null)
+        {
+            saveLoad = saveData.GetComponentInParent<SaveLoad>();
+            hasShotgun = saveLoad.hasShotgun;
+            if (saveLoad.currGun != currGun)
+                swapGun();
+        }
+    }
+
+
+    public void SaveShooting()
+    {
+        saveLoad.currGun = currGun;
+        saveLoad.hasShotgun = hasShotgun;
+    }
+
+
 	void Shoot()
     {
         float angle = this.transform.eulerAngles.z;
@@ -145,8 +170,16 @@ public class Shooting : MonoBehaviour {
 
 
         // Play sound
-        int rand = Random.Range(0, gunSounds.Length);
-        gunSounds[rand].Play();
+        if (currGun == Gun.Pistol)
+        {
+            int rand = Random.Range(0, gunSounds.Length-2);
+            gunSounds[rand].Play();
+        }
+        else
+        {
+            int rand = Random.Range(gunSounds.Length - 2, gunSounds.Length);
+            gunSounds[rand].Play();
+        }
     }
 
     void swapGun()
@@ -156,14 +189,17 @@ public class Shooting : MonoBehaviour {
             currGun = Gun.Shotgun;
             this.gameObject.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Shotgun");
             this.transform.localPosition = new Vector3(-.44f, 1.6f);
+            bulletCooldown = bulletCooldownShotgun;
         }
         else
         {
             currGun = Gun.Pistol;
             this.gameObject.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Pistol");
             this.transform.localPosition = new Vector3(0, 1.43f);
+            bulletCooldown = bulletCooldownPistol;
         }
     }
+
 	// Update is called once per frame
 	void Update () {
         if (Input.GetKeyDown(KeyCode.G))

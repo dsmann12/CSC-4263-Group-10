@@ -10,6 +10,7 @@ public class LevelTrigger : MonoBehaviour {
     Health health;
     Ammo ammo;
     Magic magic;
+    Shooting shooting;
 
 	// Use this for initialization
 	void Start () {
@@ -17,6 +18,7 @@ public class LevelTrigger : MonoBehaviour {
         health = wanderer.GetComponent<Health>();
         ammo = wanderer.GetComponent<Ammo>();
         magic = wanderer.GetComponent<Magic>();
+        shooting = wanderer.transform.GetChild(2).GetComponent<Shooting>();
         saveData = GameObject.Find("SaveData");
         if(saveData != null)
             saveLoad = saveData.GetComponent<SaveLoad>();
@@ -36,6 +38,7 @@ public class LevelTrigger : MonoBehaviour {
                 health.SaveHealth();
                 ammo.SaveAmmo();
                 magic.SaveMagic();
+                shooting.SaveShooting();
             }
             LevelManager lm = new LevelManager();
             lm.LoadLevel(level);

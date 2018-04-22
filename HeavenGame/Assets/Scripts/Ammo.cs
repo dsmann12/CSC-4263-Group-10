@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Ammo : MonoBehaviour {
-    public uint limit = 10;
-    public uint amount = 10;
+    public int limit = 10;
+    public int amount = 10;
     public bool isOutOfAmmo = false;
     GameObject saveData;
     SaveLoad saveLoad;
@@ -29,12 +29,12 @@ public class Ammo : MonoBehaviour {
         saveLoad.ammo = amount;
     }
 
-    public void AddAmmo(uint a)
+    public void AddAmmo(int a)
     {
         amount += a;
     }
 
-    public void DecreaseAmmo(uint a)
+    public void DecreaseAmmo(int a)
     {
         amount -= a;
     }

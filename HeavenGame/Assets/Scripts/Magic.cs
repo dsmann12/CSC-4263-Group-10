@@ -3,17 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Magic : MonoBehaviour {
-    public uint amount = 100;
-    public uint limit = 100;
+    public int amount = 100;
+    public int limit = 100;
     public bool isOutOfMagic = false;
-    public uint rechargeRate = 1;
+    public int rechargeRate = 1;
     public float rechargeTime = .1f;
-    GameObject saveData;
     SaveLoad saveLoad;
 
     // Use this for initialization
     void Start () {
         StartCoroutine(Recharge());
+
+        GameObject saveData;
         saveData = GameObject.Find("SaveData");
         if (saveData != null)
         {
@@ -45,12 +46,12 @@ public class Magic : MonoBehaviour {
         saveLoad.magic = amount;
     }
 
-    public void AddMagic(uint m)
+    public void AddMagic(int m)
     {
         amount += m;
     }
 
-    public void DecreaseMagic(uint m)
+    public void DecreaseMagic(int m)
     {
         amount -= m;
     }

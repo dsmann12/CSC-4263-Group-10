@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ResourcePickup : MonoBehaviour {
     public enum ResourceType { HEALTH, AMMO, MAGIC, STORY }
-    public uint value = 10;
+    public int value = 10;
     public ResourceType type;
     public GameObject panel;
 

@@ -26,14 +26,17 @@ public class JackalAudio : MonoBehaviour {
 	void Update () {
         audioTimer += Time.deltaTime;
 		if(alerted != enemy.DetectedPlayer()){
-			alerted = true;
-			
-            //Stop unalerted growl and play alerted growl
-            audioSources[0].Stop();
-            int randi = Random.Range(1, audioSources.Length);
-            audioSources[randi].Play();
-			audioTimer = 0;
-			nextGrowl = Random.Range(alertedGrowlRate - 1f, alertedGrowlRate + 1f);
+			alerted = !alerted;
+
+            if (alerted)
+            {
+                //Stop unalerted growl and play alerted growl
+                audioSources[0].Stop();
+                int randi = Random.Range(1, audioSources.Length);
+                audioSources[randi].Play();
+                audioTimer = 0;
+                nextGrowl = Random.Range(alertedGrowlRate - 1f, alertedGrowlRate + 1f);
+            }
 		}
 		else{
             if (audioTimer > nextGrowl)
