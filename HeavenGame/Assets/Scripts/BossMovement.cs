@@ -9,6 +9,7 @@ public class BossMovement : MonoBehaviour
     Rect movementArea;
     public float xMovementRange = 15;
     public float yMovementRange = 15;
+    public float health = 30;
     float movementAngle;
     bool isDashing;
     float dashCooldown = 1.5f;
@@ -29,7 +30,20 @@ public class BossMovement : MonoBehaviour
         Vector2 movementAreaDimensions = new Vector2(xMovementRange, yMovementRange);
         movementArea = new Rect(movementAreaPos, movementAreaDimensions);
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        GameObject obj = collision.gameObject;
+        if(obj.tag == "PlayerBullet")
+        {
+            Projectile proj = obj.GetComponent<Projectile>();
 
+            if (proj)
+            {
+                health -= proj.GetDamage();
+            }
+            Destroy(obj);
+        }
+    }
     void setDashTarget()
     {
         do
