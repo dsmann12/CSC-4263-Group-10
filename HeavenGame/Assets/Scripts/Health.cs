@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Health : MonoBehaviour {
     public float amount = 2;
@@ -31,7 +32,10 @@ public class Health : MonoBehaviour {
 
         if (IsDead())
         {
+            SceneManager.LoadScene("Death");
             Destroy(gameObject);
+            
+
         }
     }
 
