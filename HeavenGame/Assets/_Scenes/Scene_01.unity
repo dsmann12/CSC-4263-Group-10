@@ -77,18 +77,15 @@ LightmapSettings:
     m_PVRDirectSampleCount: 32
     m_PVRSampleCount: 500
     m_PVRBounces: 2
-    m_PVRFilterTypeDirect: 0
-    m_PVRFilterTypeIndirect: 0
-    m_PVRFilterTypeAO: 0
+    m_PVRFiltering: 0
     m_PVRFilteringMode: 1
     m_PVRCulling: 1
     m_PVRFilteringGaussRadiusDirect: 1
     m_PVRFilteringGaussRadiusIndirect: 5
     m_PVRFilteringGaussRadiusAO: 2
-    m_PVRFilteringAtrousPositionSigmaDirect: 0.5
-    m_PVRFilteringAtrousPositionSigmaIndirect: 2
-    m_PVRFilteringAtrousPositionSigmaAO: 1
-    m_ShowResolutionOverlay: 1
+    m_PVRFilteringAtrousColorSigma: 1
+    m_PVRFilteringAtrousNormalSigma: 1
+    m_PVRFilteringAtrousPositionSigma: 1
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -110,8 +107,6 @@ NavMeshSettings:
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
-    debug:
-      m_Flags: 0
   m_NavMeshData: {fileID: 0}
 --- !u!1001 &47186727
 Prefab:
@@ -491,6 +486,12 @@ Prefab:
       propertyPath: strList.Array.data[11]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 114856366848456122, guid: abcc26e7fb539ea4a94f83625ecbd3da,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 3b5e140d0f3998344a2f51dce5b15b1a,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: abcc26e7fb539ea4a94f83625ecbd3da, type: 2}
   m_IsPrefabParent: 0
@@ -860,6 +861,26 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114506148140502204, guid: 466cb53b67f6b5e44a5ad8642ac4707a,
+        type: 2}
+      propertyPath: minMapX
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114506148140502204, guid: 466cb53b67f6b5e44a5ad8642ac4707a,
+        type: 2}
+      propertyPath: maxMapX
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 114506148140502204, guid: 466cb53b67f6b5e44a5ad8642ac4707a,
+        type: 2}
+      propertyPath: minMapY
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114506148140502204, guid: 466cb53b67f6b5e44a5ad8642ac4707a,
+        type: 2}
+      propertyPath: maxMapY
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 466cb53b67f6b5e44a5ad8642ac4707a, type: 2}
   m_IsPrefabParent: 0
@@ -924,7 +945,6 @@ SpriteRenderer:
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -940,7 +960,6 @@ SpriteRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 0
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
