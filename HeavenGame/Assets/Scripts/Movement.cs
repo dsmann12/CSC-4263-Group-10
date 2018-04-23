@@ -28,6 +28,7 @@ public class Movement : MonoBehaviour {
     public float fallGravMult = 2f;
     float gravity;
     Magic magic;
+    Animation smokeDashAnim;
 
     // animator
     private Animator anim;
@@ -46,6 +47,7 @@ public class Movement : MonoBehaviour {
         sprites = GetComponentsInChildren<SpriteRenderer>();
         gravity = playerRigidBody.gravityScale;
         magic = GetComponent<Magic>();
+        smokeDashAnim = GetComponent<Animation>();
 
         // set animator
         anim = GetComponent<Animator>();
@@ -54,17 +56,19 @@ public class Movement : MonoBehaviour {
 
     void HideSprite()
     {
-        anim.enabled = false;
-        for (int i = 0; i < sprites.Length; i++)
-            sprites[i].enabled = false;
+        //anim.enabled = false;
+        //for (int i = 0; i < sprites.Length; i++)
+          //  sprites[i].enabled = false;
+        anim.SetBool("SmokeDash", true);
     }
 
 
     void ShowSprite()
     {
-        anim.enabled = true;
-        for (int i = 0; i < sprites.Length; i++)
-            sprites[i].enabled = true;
+        //anim.enabled = true;
+        //for (int i = 0; i < sprites.Length; i++)
+        //    sprites[i].enabled = true;
+        anim.SetBool("SmokeDash", false);
     }
 
 
@@ -173,6 +177,7 @@ public class Movement : MonoBehaviour {
     }
     void Dashing()
     {
+        anim.SetBool("SmokeDash", true);
         if (dashDirection == Direction.Right)
         {
             if(playerRigidBody.velocity.x != RunVector.x * 3)

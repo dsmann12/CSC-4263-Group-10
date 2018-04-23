@@ -1,0 +1,301 @@
+fileFormatVersion: 2
+guid: 5ec8c5c4dc9ca234eb151119e588f56d
+timeCreated: 1524436832
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: SMOKE_DASH_0
+    21300002: SMOKE_DASH_1
+    21300004: SMOKE_DASH_2
+    21300006: SMOKE_DASH_3
+  externalObjects: {}
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 75
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SMOKE_DASH_0
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 590
+        width: 526
+        height: 266
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 126.49415, y: 133}
+        - {x: -90.32617, y: 82.30612}
+        - {x: -248.58008, y: -24.839092}
+        - {x: -263, y: -47.264835}
+        - {x: -263, y: -62.21533}
+        - {x: -4.345699, y: -133}
+        - {x: 94.09571, y: -133}
+        - {x: 203.75197, y: -42.281334}
+        - {x: 263, y: 94.76487}
+        - {x: 263, y: 133}
+      - - {x: -156.36914, y: -68.4447}
+        - {x: -155.12305, y: -72.18233}
+        - {x: -147.64648, y: -72.18233}
+        - {x: -143.9082, y: -70.93645}
+        - {x: -143.9082, y: -67.19883}
+        - {x: -146.40039, y: -64.70708}
+        - {x: -150.13867, y: -64.70708}
+      - - {x: -72.88086, y: -11.134472}
+        - {x: -67.896484, y: -7.3968477}
+        - {x: -65.4043, y: -4.905099}
+        - {x: -61.66601, y: -4.905099}
+        - {x: -33.005856, y: 6.307772}
+        - {x: -30.513668, y: 8.799521}
+        - {x: -26.775387, y: 8.799521}
+        - {x: -24.2832, y: 7.553647}
+        - {x: -19.298824, y: 8.799521}
+        - {x: -8.083981, y: 11.29127}
+        - {x: -5.5917926, y: 11.29127}
+        - {x: 3.130864, y: 12.537145}
+        - {x: 11.85352, y: 15.028894}
+        - {x: 21.822271, y: 16.274769}
+        - {x: 26.806646, y: 18.766518}
+        - {x: 29.298834, y: 16.274769}
+        - {x: 30.544928, y: 16.274769}
+        - {x: 31.791021, y: 17.520643}
+        - {x: 30.544928, y: 18.766518}
+        - {x: 28.05274, y: 16.274769}
+        - {x: 23.068365, y: 16.274769}
+        - {x: 3.130864, y: 10.045396}
+        - {x: 0.6386763, y: 7.553647}
+        - {x: -3.099605, y: 11.29127}
+        - {x: -5.5917926, y: 11.29127}
+        - {x: -13.068356, y: 5.0618978}
+        - {x: -14.314449, y: 6.307772}
+        - {x: -18.05273, y: 6.307772}
+        - {x: -23.037106, y: 5.0618978}
+        - {x: -26.775387, y: 8.799521}
+        - {x: -29.267574, y: 8.799521}
+        - {x: -37.99023, y: 0.07839946}
+        - {x: -56.681637, y: -4.905099}
+        - {x: -66.65039, y: -6.1509733}
+        - {x: -69.14258, y: -6.1509733}
+        - {x: -72.88086, y: -3.6592243}
+        - {x: -91.572266, y: -12.380346}
+        - {x: -90.32617, y: -16.11797}
+      - - {x: -94.06445, y: 8.799521}
+        - {x: -90.32617, y: 10.045396}
+        - {x: -84.0957, y: 15.028894}
+        - {x: -75.37305, y: 16.274769}
+        - {x: -50.451168, y: 24.995892}
+        - {x: -46.712887, y: 28.733515}
+        - {x: -47.95898, y: 28.733515}
+        - {x: -46.712887, y: 27.48764}
+        - {x: -42.974606, y: 27.48764}
+        - {x: -33.005856, y: 29.97939}
+        - {x: -29.267574, y: 33.717014}
+        - {x: -30.513668, y: 33.717014}
+        - {x: -29.267574, y: 32.471138}
+        - {x: -14.314449, y: 32.471138}
+        - {x: -4.345699, y: 34.962887}
+        - {x: -0.60741746, y: 38.700512}
+        - {x: 4.3769574, y: 38.700512}
+        - {x: 4.3769574, y: 39.946384}
+        - {x: 1.88477, y: 36.208763}
+        - {x: -77.865234, y: 13.78302}
+        - {x: -87.833984, y: 10.045396}
+        - {x: -94.06445, y: 8.799521}
+        - {x: -95.31055, y: 7.553647}
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SMOKE_DASH_1
+      rect:
+        serializedVersion: 2
+        x: 917
+        y: 690
+        width: 577
+        height: 156
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 288.5, y: 14.113043}
+        - {x: 288.5, y: 78}
+        - {x: -177.07036, y: 78}
+        - {x: -287.9727, y: 7.88367}
+        - {x: -287.9727, y: -78}
+        - {x: -58.691444, y: -78}
+        - {x: 107.03903, y: -66.868805}
+        - {x: 276.50778, y: -9.558574}
+        - {x: 288.5, y: 11.621293}
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SMOKE_DASH_2
+      rect:
+        serializedVersion: 2
+        x: 923
+        y: 593
+        width: 118
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 19.582016, y: 54}
+        - {x: -48.95314, y: 8.684812}
+        - {x: -58.92189, y: -37.412548}
+        - {x: -58.92189, y: -53.608917}
+        - {x: -31.507828, y: -53.608917}
+        - {x: -22.785172, y: -51.11717}
+        - {x: 48.242172, y: -18.724428}
+        - {x: 59, y: 19.897682}
+        - {x: 59, y: 54}
+      - - {x: -57.675797, y: 47.306923}
+        - {x: -47.707047, y: 47.306923}
+        - {x: -36.492203, y: 51.044548}
+        - {x: -36.492203, y: 54}
+        - {x: -58.92189, y: 54}
+        - {x: -58.92189, y: 48.5528}
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SMOKE_DASH_3
+      rect:
+        serializedVersion: 2
+        x: 1621
+        y: 640
+        width: 452
+        height: 217
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -82.41027, y: 108.5}
+        - {x: -160.91418, y: 74.99589}
+        - {x: -169.63684, y: 5.226909}
+        - {x: -163.40637, y: -10.9694605}
+        - {x: -169.63684, y: -13.461209}
+        - {x: -169.63684, y: -17.198833}
+        - {x: -169.63684, y: -14.707084}
+        - {x: -167.14465, y: -4.7400875}
+        - {x: -212.00403, y: -17.198833}
+        - {x: -225.71106, y: -44.608074}
+        - {x: -225.71106, y: -62.050316}
+        - {x: -218.2345, y: -79.49256}
+        - {x: 18.523323, y: -106.9018}
+        - {x: 14.785043, y: -95.688934}
+        - {x: 14.785043, y: -85.72193}
+        - {x: 14.785043, y: -95.688934}
+        - {x: 18.523323, y: -103.16418}
+        - {x: 32.230354, y: -108.147675}
+        - {x: 159.33192, y: -108.147675}
+        - {x: 169.30067, y: -105.65593}
+        - {x: 226, y: -48.345695}
+        - {x: 226, y: 73.75001}
+        - {x: 189.23817, y: 108.5}
+      - - {x: 35.968636, y: -89.45956}
+        - {x: 34.72254, y: -81.984314}
+        - {x: 30.984262, y: -85.72193}
+        - {x: 34.72254, y: -93.19718}
+      - - {x: -71.19543, y: -4.7400875}
+        - {x: -76.1798, y: -3.4942129}
+        - {x: -73.687614, y: 0.24341092}
+        - {x: -73.687614, y: 1.4892855}
+        - {x: -69.94933, y: 6.4727836}
+        - {x: -67.457146, y: 8.964533}
+        - {x: -68.70324, y: 8.964533}
+        - {x: -64.96496, y: 5.226909}
+        - {x: -62.47277, y: 5.226909}
+        - {x: -56.242302, y: 8.964533}
+        - {x: -45.02746, y: 7.7186584}
+        - {x: -40.043083, y: 7.7186584}
+        - {x: -50.011833, y: 7.7186584}
+        - {x: -53.750114, y: 3.9810345}
+        - {x: -52.50402, y: 3.9810345}
+        - {x: -53.750114, y: 5.226909}
+        - {x: -58.73449, y: 5.226909}
+        - {x: -63.718864, y: 1.4892855}
+        - {x: -66.21105, y: -1.0024637}
+        - {x: -68.70324, y: -8.477711}
+        - {x: -66.21105, y: -10.9694605}
+        - {x: -66.21105, y: -9.723585}
+      - - {x: -106.08605, y: -3.4942129}
+        - {x: -106.08605, y: -4.7400875}
+        - {x: -104.83996, y: -3.4942129}
+      physicsShape: []
+      tessellationDetail: 0
+    outline: []
+    physicsShape: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
