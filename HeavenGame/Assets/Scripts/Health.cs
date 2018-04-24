@@ -32,8 +32,9 @@ public class Health : MonoBehaviour {
 
         if (IsDead())
         {
-            SceneManager.LoadScene("Death");
+            Destroy(saveData);
             Destroy(gameObject);
+            SceneManager.LoadScene("Death");
             
 
         }
