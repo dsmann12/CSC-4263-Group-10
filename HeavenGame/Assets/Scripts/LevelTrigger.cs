@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelTrigger : MonoBehaviour {
     public string level;
@@ -40,8 +41,8 @@ public class LevelTrigger : MonoBehaviour {
                 magic.SaveMagic();
                 shooting.SaveShooting();
             }
-            LevelManager lm = new LevelManager();
-            lm.LoadLevel(level);
+            Physics2D.IgnoreLayerCollision(10, 11, false);
+            SceneManager.LoadScene(level);
         }
     }
 }

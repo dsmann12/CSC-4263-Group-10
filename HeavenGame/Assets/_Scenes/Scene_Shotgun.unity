@@ -189,11 +189,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4266995416402924, guid: fa1038e361e8ada46a0cd423b5c3d5e5, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 13.6
+      value: 8.5
       objectReference: {fileID: 0}
     - target: {fileID: 4266995416402924, guid: fa1038e361e8ada46a0cd423b5c3d5e5, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -3.62
+      value: -3.49
       objectReference: {fileID: 0}
     - target: {fileID: 4266995416402924, guid: fa1038e361e8ada46a0cd423b5c3d5e5, type: 2}
       propertyPath: m_LocalPosition.z
@@ -224,6 +224,51 @@ Prefab:
       propertyPath: panel
       value: 
       objectReference: {fileID: 698965136}
+    - target: {fileID: 212904063491485930, guid: fa1038e361e8ada46a0cd423b5c3d5e5,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 18d93ac1c4ef9d742a48febc115bb7ca,
+        type: 3}
+    - target: {fileID: 61612050557828774, guid: fa1038e361e8ada46a0cd423b5c3d5e5,
+        type: 2}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 7.684
+      objectReference: {fileID: 0}
+    - target: {fileID: 61612050557828774, guid: fa1038e361e8ada46a0cd423b5c3d5e5,
+        type: 2}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 4.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1164179406548212, guid: fa1038e361e8ada46a0cd423b5c3d5e5, type: 2}
+      propertyPath: m_Name
+      value: ShotgunPickup
+      objectReference: {fileID: 0}
+    - target: {fileID: 61612050557828774, guid: fa1038e361e8ada46a0cd423b5c3d5e5,
+        type: 2}
+      propertyPath: m_Offset.x
+      value: 0.28983283
+      objectReference: {fileID: 0}
+    - target: {fileID: 61612050557828774, guid: fa1038e361e8ada46a0cd423b5c3d5e5,
+        type: 2}
+      propertyPath: m_Size.x
+      value: 4.3152776
+      objectReference: {fileID: 0}
+    - target: {fileID: 61612050557828774, guid: fa1038e361e8ada46a0cd423b5c3d5e5,
+        type: 2}
+      propertyPath: m_Offset.y
+      value: 0.15166283
+      objectReference: {fileID: 0}
+    - target: {fileID: 61612050557828774, guid: fa1038e361e8ada46a0cd423b5c3d5e5,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 1.2722073
+      objectReference: {fileID: 0}
+    - target: {fileID: 114805348934234414, guid: fa1038e361e8ada46a0cd423b5c3d5e5,
+        type: 2}
+      propertyPath: type
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fa1038e361e8ada46a0cd423b5c3d5e5, type: 2}
   m_IsPrefabParent: 0
@@ -341,14 +386,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 4158471142244816, guid: b0ddb0796ac8835448c39e831e325aa1, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4158471142244816, guid: b0ddb0796ac8835448c39e831e325aa1, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b0ddb0796ac8835448c39e831e325aa1, type: 2}
   m_IsPrefabParent: 0
@@ -359,6 +396,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114923926107821986, guid: abcc26e7fb539ea4a94f83625ecbd3da,
+        type: 2}
+      propertyPath: strList.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 224449451731144310, guid: abcc26e7fb539ea4a94f83625ecbd3da,
         type: 2}
       propertyPath: m_LocalPosition.x
@@ -448,6 +490,72 @@ Prefab:
         type: 2}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114923926107821986, guid: abcc26e7fb539ea4a94f83625ecbd3da,
+        type: 2}
+      propertyPath: strList.Array.data[1]
+      value: (Press G to switch weapons)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114923926107821986, guid: abcc26e7fb539ea4a94f83625ecbd3da,
+        type: 2}
+      propertyPath: strList.Array.data[2]
+      value: It came to me in a vision.
+      objectReference: {fileID: 0}
+    - target: {fileID: 114923926107821986, guid: abcc26e7fb539ea4a94f83625ecbd3da,
+        type: 2}
+      propertyPath: strList.Array.data[3]
+      value: Obsesssed, I would not rest until I had seen it with my own eyes.
+      objectReference: {fileID: 0}
+    - target: {fileID: 114923926107821986, guid: abcc26e7fb539ea4a94f83625ecbd3da,
+        type: 2}
+      propertyPath: strList.Array.data[4]
+      value: This is more text that would come up.
+      objectReference: {fileID: 0}
+    - target: {fileID: 114923926107821986, guid: abcc26e7fb539ea4a94f83625ecbd3da,
+        type: 2}
+      propertyPath: strList.Array.data[5]
+      value: It would probably be best if I changed the font color to contrast with
+        the player.
+      objectReference: {fileID: 0}
+    - target: {fileID: 114923926107821986, guid: abcc26e7fb539ea4a94f83625ecbd3da,
+        type: 2}
+      propertyPath: strList.Array.data[6]
+      value: But what color.
+      objectReference: {fileID: 0}
+    - target: {fileID: 114923926107821986, guid: abcc26e7fb539ea4a94f83625ecbd3da,
+        type: 2}
+      propertyPath: strList.Array.data[7]
+      value: Or maybe use a different pictures.
+      objectReference: {fileID: 0}
+    - target: {fileID: 114923926107821986, guid: abcc26e7fb539ea4a94f83625ecbd3da,
+        type: 2}
+      propertyPath: strList.Array.data[8]
+      value: Only the tower knew.
+      objectReference: {fileID: 0}
+    - target: {fileID: 114923926107821986, guid: abcc26e7fb539ea4a94f83625ecbd3da,
+        type: 2}
+      propertyPath: strList.Array.data[9]
+      value: And it was time to to climb.
+      objectReference: {fileID: 0}
+    - target: {fileID: 114923926107821986, guid: abcc26e7fb539ea4a94f83625ecbd3da,
+        type: 2}
+      propertyPath: strList.Array.data[10]
+      value: These are dramatic ellipses...
+      objectReference: {fileID: 0}
+    - target: {fileID: 114923926107821986, guid: abcc26e7fb539ea4a94f83625ecbd3da,
+        type: 2}
+      propertyPath: strList.Array.data[11]
+      value: '...'
+      objectReference: {fileID: 0}
+    - target: {fileID: 114923926107821986, guid: abcc26e7fb539ea4a94f83625ecbd3da,
+        type: 2}
+      propertyPath: strList.Array.data[12]
+      value: '...'
+      objectReference: {fileID: 0}
+    - target: {fileID: 114923926107821986, guid: abcc26e7fb539ea4a94f83625ecbd3da,
+        type: 2}
+      propertyPath: strList.Array.data[0]
+      value: Yo dawg I got a shotgun
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: abcc26e7fb539ea4a94f83625ecbd3da, type: 2}

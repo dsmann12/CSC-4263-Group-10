@@ -313,6 +313,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114923926107821986, guid: abcc26e7fb539ea4a94f83625ecbd3da,
+        type: 2}
+      propertyPath: strList.Array.size
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 224449451731144310, guid: abcc26e7fb539ea4a94f83625ecbd3da,
         type: 2}
       propertyPath: m_LocalPosition.x
@@ -415,6 +420,76 @@ Prefab:
     - target: {fileID: 1477464825769124, guid: abcc26e7fb539ea4a94f83625ecbd3da, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114907859093158930, guid: abcc26e7fb539ea4a94f83625ecbd3da,
+        type: 2}
+      propertyPath: m_Text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114923926107821986, guid: abcc26e7fb539ea4a94f83625ecbd3da,
+        type: 2}
+      propertyPath: strList.Array.data[0]
+      value: The tower felt strangely familiar
+      objectReference: {fileID: 0}
+    - target: {fileID: 114923926107821986, guid: abcc26e7fb539ea4a94f83625ecbd3da,
+        type: 2}
+      propertyPath: strList.Array.data[1]
+      value: I began to hear a voice calling to me. It said...
+      objectReference: {fileID: 0}
+    - target: {fileID: 114923926107821986, guid: abcc26e7fb539ea4a94f83625ecbd3da,
+        type: 2}
+      propertyPath: strList.Array.data[2]
+      value: '"Use WASD to move"'
+      objectReference: {fileID: 0}
+    - target: {fileID: 114923926107821986, guid: abcc26e7fb539ea4a94f83625ecbd3da,
+        type: 2}
+      propertyPath: strList.Array.data[3]
+      value: '"Use right mouse to fire and left mouse to melee"'
+      objectReference: {fileID: 0}
+    - target: {fileID: 114923926107821986, guid: abcc26e7fb539ea4a94f83625ecbd3da,
+        type: 2}
+      propertyPath: strList.Array.data[4]
+      value: '"Use space to jump"'
+      objectReference: {fileID: 0}
+    - target: {fileID: 114923926107821986, guid: abcc26e7fb539ea4a94f83625ecbd3da,
+        type: 2}
+      propertyPath: strList.Array.data[5]
+      value: '"Double tap space to double jump"'
+      objectReference: {fileID: 0}
+    - target: {fileID: 114923926107821986, guid: abcc26e7fb539ea4a94f83625ecbd3da,
+        type: 2}
+      propertyPath: strList.Array.data[6]
+      value: '"Use shift to dash"'
+      objectReference: {fileID: 0}
+    - target: {fileID: 114923926107821986, guid: abcc26e7fb539ea4a94f83625ecbd3da,
+        type: 2}
+      propertyPath: strList.Array.data[7]
+      value: '"You''re welcome!"'
+      objectReference: {fileID: 0}
+    - target: {fileID: 114923926107821986, guid: abcc26e7fb539ea4a94f83625ecbd3da,
+        type: 2}
+      propertyPath: strList.Array.data[8]
+      value: Thank you, strange voice.
+      objectReference: {fileID: 0}
+    - target: {fileID: 114923926107821986, guid: abcc26e7fb539ea4a94f83625ecbd3da,
+        type: 2}
+      propertyPath: strList.Array.data[9]
+      value: Thank you
+      objectReference: {fileID: 0}
+    - target: {fileID: 114923926107821986, guid: abcc26e7fb539ea4a94f83625ecbd3da,
+        type: 2}
+      propertyPath: strList.Array.data[10]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114923926107821986, guid: abcc26e7fb539ea4a94f83625ecbd3da,
+        type: 2}
+      propertyPath: strList.Array.data[12]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114923926107821986, guid: abcc26e7fb539ea4a94f83625ecbd3da,
+        type: 2}
+      propertyPath: strList.Array.data[11]
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: abcc26e7fb539ea4a94f83625ecbd3da, type: 2}

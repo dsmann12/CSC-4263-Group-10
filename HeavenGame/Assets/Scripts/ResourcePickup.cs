@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ResourcePickup : MonoBehaviour {
-    public enum ResourceType { HEALTH, AMMO, MAGIC, STORY }
+    public enum ResourceType { HEALTH, AMMO, MAGIC, STORY, WEAPON }
     public int value = 10;
     public ResourceType type;
     public GameObject panel;
@@ -39,6 +39,11 @@ public class ResourcePickup : MonoBehaviour {
                     magic.AddMagic(value);
                     break;
                 case ResourceType.STORY:
+                    panel.SetActive(true);
+                    break;
+                case ResourceType.WEAPON:
+                    Shooting shooting = player.GetComponentInChildren<Shooting>();
+                    shooting.hasShotgun = true;
                     panel.SetActive(true);
                     break;
                 default:
