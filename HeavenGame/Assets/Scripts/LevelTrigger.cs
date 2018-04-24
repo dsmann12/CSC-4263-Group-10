@@ -40,6 +40,8 @@ public class LevelTrigger : MonoBehaviour {
                 ammo.SaveAmmo();
                 magic.SaveMagic();
                 shooting.SaveShooting();
+                saveLoad.lastScene = saveLoad.currScene;
+                saveLoad.currScene = level;
             }
             Physics2D.IgnoreLayerCollision(10, 11, false);
             SceneManager.LoadScene(level);

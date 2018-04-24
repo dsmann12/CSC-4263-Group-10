@@ -8,6 +8,7 @@ public class Shredder : MonoBehaviour {
     {
         if (collision.gameObject.tag == "Player")
         {
+            Destroy(GameObject.Find("SaveData"));
             SceneManager.LoadScene("Death");
         }
         Destroy(collision.gameObject);

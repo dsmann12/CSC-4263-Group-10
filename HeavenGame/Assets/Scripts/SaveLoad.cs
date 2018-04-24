@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SaveLoad : MonoBehaviour {
     public float health;
@@ -17,7 +18,7 @@ public class SaveLoad : MonoBehaviour {
         GameObject[] data = GameObject.FindGameObjectsWithTag("SaveData");
         if (data.Length > 1)
         {
-            Destroy(this);
+            Destroy(gameObject);
         }
         else
         {
@@ -32,6 +33,7 @@ public class SaveLoad : MonoBehaviour {
             hasShotgun = shooting.hasShotgun;
             currGun = shooting.currGun;
             lastScene = "";
+            currScene = SceneManager.GetActiveScene().name;
         }
     }
 }

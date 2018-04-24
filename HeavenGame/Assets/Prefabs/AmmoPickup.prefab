@@ -78,7 +78,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4659029e2db9567499713409b4a69f6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  value: 10
+  value: 15
   type: 1
   panel: {fileID: 0}
 --- !u!212 &212132446014634636

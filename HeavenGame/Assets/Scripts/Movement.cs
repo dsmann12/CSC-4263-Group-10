@@ -28,13 +28,29 @@ public class Movement : MonoBehaviour {
     public float fallGravMult = 2f;
     float gravity;
     Magic magic;
-    Animation smokeDashAnim;
+    SaveLoad saveLoad;
 
     // animator
     private Animator anim;
 
 	// Use this for initialization
 	void Start () {
+        GameObject saveData = GameObject.Find("SaveData");
+        GameObject spawn = GameObject.Find("SpawnPoints");
+        if (saveData != null)
+        {
+            saveLoad = saveData.GetComponent<SaveLoad>();
+            if(saveLoad.currScene == "Scene_04")
+            {
+                int i = 0;
+                if (saveLoad.lastScene == "Scene_Shotgun")
+                    i = 1;
+                else if (saveLoad.lastScene == "Scene_05")
+                    i = 2;
+                transform.position = new Vector3(spawn.transform.GetChild(i).position.x, spawn.transform.GetChild(i).position.y, spawn.transform.GetChild(i).position.z);
+            }
+        }
+
         playerRigidBody = this.GetComponent<Rigidbody2D>();
         currState = MovementState.Standing;
         playerRigidBody.AddForce(new Vector2(0, 0));
@@ -47,7 +63,8 @@ public class Movement : MonoBehaviour {
         sprites = GetComponentsInChildren<SpriteRenderer>();
         gravity = playerRigidBody.gravityScale;
         magic = GetComponent<Magic>();
-        smokeDashAnim = GetComponent<Animation>();
+
+        
 
         // set animator
         anim = GetComponent<Animator>();

@@ -1317,7 +1317,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   limit: 100
-  amount: 100
+  amount: 20
   isOutOfAmmo: 0
 --- !u!114 &114864645032109642
 MonoBehaviour:
