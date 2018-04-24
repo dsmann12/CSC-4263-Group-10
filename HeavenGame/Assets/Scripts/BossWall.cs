@@ -5,7 +5,7 @@ using UnityEngine;
 public class BossWall : MonoBehaviour
 {
     float expansionSpeed = .01f;
-    float xMovement = 10;
+    float xMovement = 15;
     float movementSpeed = .01f;
     float lifetime = 10;
     float shrinkSpeed = .01f;
@@ -42,7 +42,7 @@ public class BossWall : MonoBehaviour
         if (collision.gameObject.tag == "PlayerBullet")
         {
             Rigidbody2D rgdBody = collision.gameObject.GetComponent<Rigidbody2D>();
-            rgdBody.drag = .8f;
+            rgdBody.drag = 1.5f;
             rgdBody.gravityScale = 5;
         }
 
@@ -53,7 +53,7 @@ public class BossWall : MonoBehaviour
         float newY = this.transform.localScale.y;
         bool isXDone = false;
         bool isYDone = false;
-        if (newX < 1)
+        if (newX < 1.5)
         {
             newX += expansionSpeed;
         }
@@ -61,7 +61,7 @@ public class BossWall : MonoBehaviour
         {
             isXDone = true;
         }
-        if (newY < 1.3)
+        if (newY < 2.5)
         {
             newY += expansionSpeed;
         }

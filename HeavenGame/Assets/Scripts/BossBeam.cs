@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BossBeam : MonoBehaviour
 {
-    float expansionSpeed = .01f;
+    float expansionSpeed = .0001f;
     float shrinkSpeed = .01f;
     bool isExpansionFinished = false;
     int direction = 1;

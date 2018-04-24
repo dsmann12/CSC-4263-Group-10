@@ -17,6 +17,7 @@ public class BossMovement : MonoBehaviour
     float wobbleAngle;
     float wobbleAngleChangeCooldown = .5f;
     float wobbleAngleChangeTimer;
+    public GameObject panel;
     // Use this for initialization
     void Start()
     {
@@ -42,6 +43,11 @@ public class BossMovement : MonoBehaviour
                 health -= proj.GetDamage();
             }
             Destroy(obj);
+            if (health == 0)
+            {
+                Destroy(this.gameObject);
+                panel.SetActive(true);
+            }
         }
     }
     void setDashTarget()

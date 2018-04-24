@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DefaultCamera : MonoBehaviour {
+public class DefaultCamera : MonoBehaviour
+{
     public GameObject target;
     public Vector2 focusAreaSize;
     public float verticalOffset;
-    
     private FocusArea focusArea;
-    
+    public float minMapX, maxMapX, minMapY, maxMapY;
     // focus box for camera
     struct FocusArea
     {
@@ -38,7 +38,8 @@ public class DefaultCamera : MonoBehaviour {
             if (targetBounds.min.x < left)
             {
                 shiftX = targetBounds.min.x - left;
-            } else if (targetBounds.max.x > right)
+            }
+            else if (targetBounds.max.x > right)
             {
                 shiftX = targetBounds.max.x - right;
             }
@@ -47,7 +48,7 @@ public class DefaultCamera : MonoBehaviour {
             right += shiftX;
 
             float shiftY = 0;
-            
+
             // move y bound of focus area depending on where player has moved to
             if (targetBounds.min.y < bottom)
             {
@@ -77,6 +78,8 @@ public class DefaultCamera : MonoBehaviour {
         // Get player and instantiate focusArea with player's box collider bounds
         target = GameObject.FindGameObjectWithTag("Player");
         focusArea = new FocusArea(target.GetComponent<BoxCollider2D>().bounds, focusAreaSize);
+        focusAreaSize.x = 5;
+        focusAreaSize.y = 5;
     }
 
     // to help see focus area in scene
@@ -95,7 +98,45 @@ public class DefaultCamera : MonoBehaviour {
         // move camera up from player by a certain offset
         Vector2 focusPosition = focusArea.center + Vector2.up * verticalOffset;
 
+        Vector3 temp = transform.position;
         // change camera position based on focusPosition
         transform.position = (Vector3)focusPosition + Vector3.forward * -10; // camera is always infront of play area
+        Camera cam = GetComponent<Camera>();
+        if (transform.position.x < minMapX)
+        {
+            Vector3 newpos;
+            newpos.x = minMapX;
+            newpos.y = transform.position.y;
+            newpos.z = transform.position.z;
+            transform.position = newpos;
+        }
+
+        if (transform.position.x + cam.orthographicSize > maxMapX)
+        {
+            Vector3 newpos;
+            newpos.x = maxMapX - cam.orthographicSize;
+            newpos.y = transform.position.y;
+            newpos.z = transform.position.z;
+            transform.position = newpos;
+        }
+
+        print(transform.position.y);
+        if (transform.position.y + cam.orthographicSize > maxMapY)
+        {
+            Vector3 newpos;
+            newpos.x = transform.position.x;
+            newpos.y = maxMapY - cam.orthographicSize;
+            newpos.z = transform.position.z;
+            transform.position = newpos;
+        }
+
+        if (transform.position.y < minMapY)
+        {
+            Vector3 newpos;
+            newpos.x = transform.position.x;
+            newpos.y = minMapY;
+            newpos.z = transform.position.z;
+            transform.position = newpos;
+        }
     }
 }
