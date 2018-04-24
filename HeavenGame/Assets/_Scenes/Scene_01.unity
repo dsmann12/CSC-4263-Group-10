@@ -459,7 +459,7 @@ Prefab:
     - target: {fileID: 114923926107821986, guid: abcc26e7fb539ea4a94f83625ecbd3da,
         type: 2}
       propertyPath: strList.Array.data[6]
-      value: '"Use shift to dash"'
+      value: '"Use Ctrl to dash"'
       objectReference: {fileID: 0}
     - target: {fileID: 114923926107821986, guid: abcc26e7fb539ea4a94f83625ecbd3da,
         type: 2}
