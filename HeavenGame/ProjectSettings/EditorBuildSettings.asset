@@ -5,24 +5,24 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Scenes/Heaven.unity
     guid: 2ec20a718ae8116469b85a00c80ff211
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Scenes/Jackal_Proto.unity
     guid: 7a67b47c356ec2e4fb9c0eeed16a99eb
+  - enabled: 0
+    path: Assets/_Scenes/Prototype.unity
+    guid: 8320d7986fd80c34f864c4768e8c01c5
+  - enabled: 0
+    path: Assets/_Scenes/Robot_Proto.unity
+    guid: ef2b573432fbae244826893c9f6c5464
   - enabled: 1
     path: Assets/_Scenes/Menu.unity
     guid: a48fce71f1e93c244bf5a14e361fc729
   - enabled: 1
-    path: Assets/_Scenes/Prototype.unity
-    guid: 8320d7986fd80c34f864c4768e8c01c5
-  - enabled: 1
-    path: Assets/_Scenes/Prototype_Davis.unity
-    guid: 10b97acb4be9d4f96b46c520f379d6d3
-  - enabled: 1
-    path: Assets/_Scenes/Robot_Proto.unity
-    guid: ef2b573432fbae244826893c9f6c5464
+    path: Assets/_Scenes/Intro.unity
+    guid: 6c26dd23df8bf064c91a7cd50649de32
   - enabled: 1
     path: Assets/_Scenes/Scene_01.unity
     guid: 58c1f5b3a1776f043bc4f6dbde20291b
@@ -30,14 +30,14 @@ EditorBuildSettings:
     path: Assets/_Scenes/Scene_02.unity
     guid: 5ed72d86a2e98b040aa2edb73e899106
   - enabled: 1
+    path: Assets/_Scenes/Prototype_Davis.unity
+    guid: 10b97acb4be9d4f96b46c520f379d6d3
+  - enabled: 1
     path: Assets/_Scenes/Scene_04.unity
     guid: 85e6c7cdcc68e054a9f0f85a37ae328d
   - enabled: 1
     path: Assets/_Scenes/Scene_Shotgun.unity
     guid: 1f7ae0db44be2654c85a23fd08fd5166
-  - enabled: 1
-    path: Assets/_Scenes/Intro.unity
-    guid: 6c26dd23df8bf064c91a7cd50649de32
   - enabled: 1
     path: Assets/_Scenes/Scene_05.unity
     guid: ae93cb3e81ec0c3498f2998609f072e3
