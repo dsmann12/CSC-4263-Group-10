@@ -47,6 +47,20 @@ public class Credits : MonoBehaviour {
         creditText.text = "HEAVEN";
         yield return new WaitForSeconds(2.0f);
 
+
+        GameObject[] data = GameObject.FindGameObjectsWithTag("SaveData");
+        if (data.Length > 0)
+        {
+            Debug.Log("Save is found");
+            GameObject music = data[0].GetComponent<AudioSource>().gameObject;
+            Destroy(music);
+            Destroy(gameObject);
+        }
+        else
+        {
+            Debug.Log("No save");
+        }
+
         SceneManager.LoadScene("Menu");
     }
 }
