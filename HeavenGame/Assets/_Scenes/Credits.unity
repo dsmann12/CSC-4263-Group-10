@@ -262,13 +262,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'A
-
-
-    Pixel Dash Studios
-
-
-    Production'
+  m_Text: 
 --- !u!222 &1232489562
 CanvasRenderer:
   m_ObjectHideFlags: 0
