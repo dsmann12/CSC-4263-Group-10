@@ -12,11 +12,21 @@ public class BossWall : MonoBehaviour
     bool isExpansionFinished = false;
     bool isMovementFinished = false;
     int direction = 1;
+
+
+    // Get collider
+    BoxCollider2D col;
+
     // Use this for initialization
     void Start()
     {
         direction = findDirection();
+
+        // Get box collider and disable it until exanded
+        col = GetComponent<BoxCollider2D>();
+        col.enabled = false;
     }
+
     int findDirection()
     {
         GameObject player = null;
@@ -33,7 +43,7 @@ public class BossWall : MonoBehaviour
             return 1;
         }
         else
-        {
+        { 
             return -1;
         }
     }
@@ -44,6 +54,11 @@ public class BossWall : MonoBehaviour
             Rigidbody2D rgdBody = collision.gameObject.GetComponent<Rigidbody2D>();
             rgdBody.drag = 1.5f;
             rgdBody.gravityScale = 5;
+        } else if (collision.gameObject.tag == "Player")
+        {
+            GameObject player = collision.gameObject;
+            Health playerHealth = player.GetComponent<Health>();
+            playerHealth.DecreaseHelth(1.0f);
         }
 
     }
@@ -74,6 +89,7 @@ public class BossWall : MonoBehaviour
         if (isYDone && isXDone)
         {
             isExpansionFinished = true;
+            col.enabled = true;
         }
     }
     void move()

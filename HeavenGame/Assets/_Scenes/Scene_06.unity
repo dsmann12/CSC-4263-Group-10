@@ -398,6 +398,16 @@ Prefab:
       propertyPath: nextScene
       value: Credits
       objectReference: {fileID: 0}
+    - target: {fileID: 224647720052231378, guid: abcc26e7fb539ea4a94f83625ecbd3da,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 0.76
+      objectReference: {fileID: 0}
+    - target: {fileID: 224647720052231378, guid: abcc26e7fb539ea4a94f83625ecbd3da,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: abcc26e7fb539ea4a94f83625ecbd3da, type: 2}
   m_IsPrefabParent: 0
@@ -438,7 +448,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4936888024763332, guid: 841ae144178379a4290bb735b6ec70d0, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 61175548649623120, guid: 841ae144178379a4290bb735b6ec70d0,
         type: 2}
@@ -556,7 +566,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4387159187256012, guid: ca471dfb5d7eeff4ebb9b16dffce28dd, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 114458157016285696, guid: ca471dfb5d7eeff4ebb9b16dffce28dd,
         type: 2}
@@ -724,7 +734,7 @@ Transform:
   - {fileID: 423381733}
   - {fileID: 1690215484}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1690215482
 GameObject:
