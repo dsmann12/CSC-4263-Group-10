@@ -122,6 +122,8 @@ public class Shooting : MonoBehaviour {
                 bullet.GetComponent<Rigidbody2D>().gravityScale = 0;
                 bullet.AddComponent<BulletMovement>();
 
+                // test bullet as trigger 
+                bullet.GetComponent<BoxCollider2D>().isTrigger = true;
                 // add projectile component
                 bullet.AddComponent<Projectile>();
 
@@ -155,11 +157,11 @@ public class Shooting : MonoBehaviour {
             bullet.GetComponent<Rigidbody2D>().gravityScale = 0;
             bullet.AddComponent<BulletMovement>();
 
-        // test bullet as trigger
-        bullet.GetComponent<BoxCollider2D>().isTrigger = true;
+            // test bullet as trigger
+            bullet.GetComponent<BoxCollider2D>().isTrigger = true;
 
-        // add projectile component
-        bullet.AddComponent<Projectile>();
+            // add projectile component
+            bullet.AddComponent<Projectile>();
 
             // add tag to bullet
             bullet.tag = "PlayerBullet";

@@ -120,7 +120,6 @@ public class DefaultCamera : MonoBehaviour
             transform.position = newpos;
         }
 
-        print(transform.position.y);
         if (transform.position.y + cam.orthographicSize > maxMapY)
         {
             Vector3 newpos;

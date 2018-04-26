@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class UpdateUI : MonoBehaviour {
     private Text ammoText;
-    private Text magicText;
+    private Slider magicSlider;
     private Text healthText;
     private Ammo ammo;
     private Magic magic;
@@ -17,21 +17,20 @@ public class UpdateUI : MonoBehaviour {
         player = GameObject.FindGameObjectWithTag("Player");
         foreach(Text text in GetComponentsInChildren<Text>())
         {
+            Debug.Log("Name in Children Components is " + text.name);
             if (text.name == "AmmoText")
             {
                 ammoText = text;
-            } else if (text.name == "MagicText")
-            {
-                magicText = text;
             } else if (text.name == "HealthText")
             {
                 healthText = text;
             }
         }
+
+        magicSlider = GetComponentInChildren<Slider>();
         ammo = player.GetComponent<Ammo>();
         magic = player.GetComponent<Magic>();
         health = player.GetComponent<Health>();
-        Debug.Log("Update UI");
     }
 
     // Use this for initialization
@@ -41,8 +40,9 @@ public class UpdateUI : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        ammoText.text = "Ammo: " + ammo.amount;
-        magicText.text = "Magic: " + magic.amount;
-        healthText.text = "Health: " + health.amount;
+        ammoText.text = ammo.amount.ToString();
+        //magicText.text = magic.amount.ToString();
+        magicSlider.value = magic.amount;
+        healthText.text = health.amount.ToString();
 	}
 }

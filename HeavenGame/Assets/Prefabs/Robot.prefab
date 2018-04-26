@@ -672,7 +672,7 @@ MonoBehaviour:
   damage: 1
   mask:
     serializedVersion: 2
-    m_Bits: 8448
+    m_Bits: 24832
   facingRight: 1
 --- !u!114 &114866663332584416
 MonoBehaviour:

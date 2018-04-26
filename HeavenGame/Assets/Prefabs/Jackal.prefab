@@ -1048,7 +1048,7 @@ MonoBehaviour:
   damage: 1
   mask:
     serializedVersion: 2
-    m_Bits: 8448
+    m_Bits: 24832
   facingRight: 1
 --- !u!114 &114756381207941332
 MonoBehaviour:
@@ -1081,6 +1081,7 @@ MonoBehaviour:
   maxCeilingHeight: 18
   distanceToTopOfObject: 1.7
   groundedDistance: 1.8
+  ceilingJumpChance: 0.1
 --- !u!212 &212749430812802972
 SpriteRenderer:
   m_ObjectHideFlags: 1

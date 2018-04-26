@@ -77,15 +77,18 @@ LightmapSettings:
     m_PVRDirectSampleCount: 32
     m_PVRSampleCount: 500
     m_PVRBounces: 2
-    m_PVRFiltering: 0
+    m_PVRFilterTypeDirect: 0
+    m_PVRFilterTypeIndirect: 0
+    m_PVRFilterTypeAO: 0
     m_PVRFilteringMode: 1
     m_PVRCulling: 1
     m_PVRFilteringGaussRadiusDirect: 1
     m_PVRFilteringGaussRadiusIndirect: 5
     m_PVRFilteringGaussRadiusAO: 2
-    m_PVRFilteringAtrousColorSigma: 1
-    m_PVRFilteringAtrousNormalSigma: 1
-    m_PVRFilteringAtrousPositionSigma: 1
+    m_PVRFilteringAtrousPositionSigmaDirect: 0.5
+    m_PVRFilteringAtrousPositionSigmaIndirect: 2
+    m_PVRFilteringAtrousPositionSigmaAO: 1
+    m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -107,6 +110,8 @@ NavMeshSettings:
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
+    debug:
+      m_Flags: 0
   m_NavMeshData: {fileID: 0}
 --- !u!1001 &47186727
 Prefab:
@@ -383,6 +388,16 @@ Prefab:
       propertyPath: strList.Array.data[0]
       value: '...'
       objectReference: {fileID: 0}
+    - target: {fileID: 114923926107821986, guid: abcc26e7fb539ea4a94f83625ecbd3da,
+        type: 2}
+      propertyPath: loadingScene
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114923926107821986, guid: abcc26e7fb539ea4a94f83625ecbd3da,
+        type: 2}
+      propertyPath: nextScene
+      value: Credits
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: abcc26e7fb539ea4a94f83625ecbd3da, type: 2}
   m_IsPrefabParent: 0
@@ -436,6 +451,22 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b0ddb0796ac8835448c39e831e325aa1, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1073803980 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1237753233165806, guid: abcc26e7fb539ea4a94f83625ecbd3da,
+    type: 2}
+  m_PrefabInternal: {fileID: 598288741}
+--- !u!114 &1073803981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1073803980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de25315b88ddb6045b009ab0a1b1dade, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1417041131
 Prefab:
   m_ObjectHideFlags: 0
@@ -480,21 +511,6 @@ Prefab:
       propertyPath: panel
       value: 
       objectReference: {fileID: 1793529982}
-    - target: {fileID: 114616443634623878, guid: ca471dfb5d7eeff4ebb9b16dffce28dd,
-        type: 2}
-      propertyPath: bombCooldown
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114616443634623878, guid: ca471dfb5d7eeff4ebb9b16dffce28dd,
-        type: 2}
-      propertyPath: beamCooldown
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 114458157016285696, guid: ca471dfb5d7eeff4ebb9b16dffce28dd,
-        type: 2}
-      propertyPath: health
-      value: 30
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ca471dfb5d7eeff4ebb9b16dffce28dd, type: 2}
   m_IsPrefabParent: 0
@@ -683,6 +699,7 @@ SpriteRenderer:
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -698,6 +715,7 @@ SpriteRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 0
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
